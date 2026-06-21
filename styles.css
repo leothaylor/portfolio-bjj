@@ -379,7 +379,7 @@ p {
   align-items: center;
   background:
     linear-gradient(rgba(15, 15, 15, 0.88), rgba(15, 15, 15, 0.92)),
-    url("./assets/images/hero-bjj-placeholder.png") center / cover;
+    url("./assets/images/presence-leo-bjj.jpg") center / cover;
 }
 
 .presence-inner {
@@ -479,7 +479,7 @@ p {
   }
 
   .hero-media img {
-    object-position: 58% center;
+    object-position: center;
   }
 
   .split,
