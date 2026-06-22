@@ -52,42 +52,21 @@
 
   const hasGsap = typeof window.gsap !== "undefined";
   const hasScrollTrigger = hasGsap && typeof window.ScrollTrigger !== "undefined";
-  const hasLenis = typeof window.Lenis !== "undefined";
 
   if (hasScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  let lenis = null;
+  /* ------------------------------------------------------------------ */
+  /* (2) Scroll — native everywhere.                                     */
+  /* We use the browser's own (compositor-driven) scroll on every        */
+  /* device. It stays fluid even when the main thread is busy painting,  */
+  /* which JS smooth-scroll (Lenis) cannot guarantee. ScrollTrigger      */
+  /* drives all the movement effects on top of this native scroll.       */
+  /* ------------------------------------------------------------------ */
 
   /* ------------------------------------------------------------------ */
-  /* (2) Smooth scroll with inertia — Lenis, desktop only               */
-  /* ------------------------------------------------------------------ */
-  function initLenis() {
-    // Native scroll on touch / small screens and when motion is reduced.
-    if (!hasLenis || reduceMotion || isTouch || isSmall) return;
-
-    lenis = new Lenis({
-      lerp: 0.2, // snappier: page catches up to the wheel fast (kills the "delay")
-      wheelMultiplier: 1,
-      smoothWheel: true,
-    });
-
-    if (hasScrollTrigger) {
-      lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      const raf = (time) => {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      };
-      requestAnimationFrame(raf);
-    }
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Anchor navigation — works with or without Lenis                    */
+  /* Anchor navigation — native smooth scroll                            */
   /* ------------------------------------------------------------------ */
   function initAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -99,13 +78,8 @@
 
         event.preventDefault();
         const offset = (header ? header.offsetHeight : 0) + 14;
-
-        if (lenis) {
-          lenis.scrollTo(target, { offset: -offset });
-        } else {
-          const y = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
-        }
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
         closeNav();
       });
     });
@@ -168,8 +142,10 @@
     const marquee = document.querySelector("[data-marquee]");
     if (!marquee) return;
 
-    // Native horizontal scroll fallback on touch / reduced motion / no GSAP.
-    if (!hasScrollTrigger || reduceMotion || isTouch || isSmall) {
+    // The counter-movement runs on every device (light thumbnails keep it
+    // smooth on mobile too). Only fall back to a static row when motion is
+    // reduced or GSAP/ScrollTrigger is unavailable.
+    if (!hasScrollTrigger || reduceMotion) {
       marquee.querySelectorAll(".marquee-row").forEach((row) => {
         row.style.overflowX = "auto";
       });
@@ -181,18 +157,20 @@
       const track = row.querySelector("[data-marquee-track]");
       if (!track) return;
 
-      // How far the track can travel without exposing an edge.
-      const slack = Math.max(track.scrollWidth - row.clientWidth, 0);
-      if (slack === 0) return;
-
       const dir = row.getAttribute("data-marquee-row") === "right" ? 1 : -1;
-      const travel = Math.min(slack, row.clientWidth * 0.5);
+
+      // Distance the track can travel without exposing an edge. Computed as a
+      // function so ScrollTrigger re-evaluates it on every refresh() — the
+      // first measurement happens behind the preloader (row width still 0),
+      // and refresh() after the reveal corrects it.
+      const travel = () =>
+        Math.min(Math.max(track.scrollWidth - row.clientWidth, 0), row.clientWidth * 0.5);
 
       gsap.fromTo(
         track,
-        { x: dir < 0 ? 0 : -travel },
+        { x: () => (dir < 0 ? 0 : -travel()) },
         {
-          x: dir < 0 ? -travel : 0,
+          x: () => (dir < 0 ? -travel() : 0),
           ease: "none",
           scrollTrigger: {
             trigger: marquee,
@@ -362,7 +340,6 @@
   /* Boot                                                                */
   /* ------------------------------------------------------------------ */
   function boot() {
-    initLenis();
     initAnchors();
     initParallax();
     initReveal();
@@ -370,12 +347,8 @@
     initFooterReveal();
     initMagnetic();
 
-    if (lenis) lenis.stop(); // freeze scroll behind the preloader
-
-    if (lenis) window.__lenis = lenis; // debug/verification hook
-
+    // Scroll stays frozen behind the preloader via body.is-loading (CSS).
     runPreloader(() => {
-      if (lenis) lenis.start();
       heroIntro();
       if (hasScrollTrigger) ScrollTrigger.refresh();
     });
