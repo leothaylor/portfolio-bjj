@@ -7,7 +7,7 @@
       name="description"
       content="Portfólio pessoal de Leo Thaylor, faixa preta de jiu-jitsu e professor no Rio de Janeiro."
     />
-    <meta name="theme-color" content="#0f0f0f" />
+    <meta name="theme-color" content="#16221a" />
     <title>Leo Thaylor | Jiu-Jitsu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,17 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body class="is-loading">
+    <!-- ============================================================== -->
+    <!-- (1) PRELOADER — greeting cycle, darkest colour of the palette  -->
+    <!-- ============================================================== -->
+    <div class="preloader" data-preloader aria-hidden="true">
+      <p class="preloader-word">
+        <span class="preloader-dot" aria-hidden="true">•</span>
+        <span data-preloader-text>Oss</span>
+      </p>
+    </div>
+
     <header class="site-header" data-header>
       <a class="brand" href="#inicio" aria-label="Voltar ao início">
         <span>Leo Thaylor</span>
@@ -31,13 +41,17 @@
         <a href="#sobre">Sobre</a>
         <a href="#metodo">Método</a>
         <a href="#conteudo">Conteúdo</a>
+        <a href="#momentos">Momentos</a>
         <a href="#contato">Contato</a>
       </nav>
     </header>
 
     <main>
+      <!-- ============================================================ -->
+      <!-- (2) HERO — split: photo + darkened panel with the copy        -->
+      <!-- ============================================================ -->
       <section id="inicio" class="hero section">
-        <div class="hero-media" aria-label="Professor de jiu-jitsu em ambiente de treino">
+        <div class="hero-media" aria-label="Leo Thaylor no tatame, de kimono">
           <img src="./assets/images/hero-leo-bjj.jpg" alt="" />
         </div>
         <div class="hero-copy">
@@ -47,21 +61,48 @@
             É percepção que vira técnica. Faixa preta e professor na TRION, Rio de Janeiro.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="https://wa.me/5521982808635" target="_blank" rel="noreferrer">
+            <a class="pill pill-solid" href="https://wa.me/5521982808635" target="_blank" rel="noreferrer" data-magnetic>
               WhatsApp
             </a>
-            <a class="button ghost" href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer">
+            <a class="pill pill-ghost" href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer" data-magnetic>
               Instagram
             </a>
           </div>
         </div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Rio de Janeiro, Brasil
+        </div>
       </section>
 
+      <!-- ============================================================ -->
+      <!-- (3) INTRO / TRANSIÇÃO — sparse, typographic, no image (NEW)   -->
+      <!-- ============================================================ -->
+      <section id="intro" class="section intro">
+        <div class="intro-inner">
+          <p class="intro-lead">
+            Treino todos os dias. Ensino do mesmo jeito que aprendi: olhando o que está
+            acontecendo antes de decidir o que fazer.
+          </p>
+          <a class="round-button" href="#sobre" data-magnetic>
+            <span>Sobre mim</span>
+            <span class="round-button-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+        <div class="section-divider">
+          <span class="section-label">Método</span>
+          <span class="section-divider-line" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- (4) SOBRE — conteúdo preservado, layout tipográfico esparso   -->
+      <!-- ============================================================ -->
       <section id="sobre" class="section about">
         <div class="section-label">Sobre</div>
-        <div class="split">
-          <div class="quote-mark" aria-hidden="true">"</div>
-          <div>
+        <div class="about-grid">
+          <div class="about-headline">
+            <span class="quote-mark" aria-hidden="true">"</span>
             <h2>Comecei aos 16. Ainda treino todos os dias.</h2>
           </div>
           <div class="copy-stack">
@@ -77,42 +118,46 @@
         </div>
       </section>
 
+      <!-- ============================================================ -->
+      <!-- (5) MÉTODO — lista tipográfica grande                         -->
+      <!-- ============================================================ -->
       <section id="metodo" class="section method">
         <div class="section-label">Método</div>
-        <div class="method-grid">
-          <div>
-            <h2>Golpe é fruto. Nunca é raiz.</h2>
-            <p>
-              Aqui, golpe nunca é o ponto de partida. Todo ataque nasce de uma posição e de um controle —
-              sem isso, é só tentativa. A aula segue essa lógica: primeiro entender o que está acontecendo,
-              depois organizar o corpo, controlar o espaço e só então atacar com intenção.
-            </p>
-          </div>
-          <ol class="method-list" aria-label="Etapas do método">
-            <li>
-              <span>01</span>
-              <strong>Percepção</strong>
-              <p>Ler pressão, distância e direção antes de gastar força.</p>
-            </li>
-            <li>
-              <span>02</span>
-              <strong>Posição</strong>
-              <p>Colocar o corpo em um lugar que faça sentido.</p>
-            </li>
-            <li>
-              <span>03</span>
-              <strong>Controle</strong>
-              <p>Manter vantagem sem pressa e sem excesso.</p>
-            </li>
-            <li>
-              <span>04</span>
-              <strong>Golpe</strong>
-              <p>Finalizar ou avançar quando a construção abre caminho.</p>
-            </li>
-          </ol>
+        <div class="method-intro">
+          <h2>Golpe é fruto. Nunca é raiz.</h2>
+          <p>
+            Aqui, golpe nunca é o ponto de partida. Todo ataque nasce de uma posição e de um controle —
+            sem isso, é só tentativa. A aula segue essa lógica: primeiro entender o que está acontecendo,
+            depois organizar o corpo, controlar o espaço e só então atacar com intenção.
+          </p>
         </div>
+        <ol class="method-list" aria-label="Etapas do método">
+          <li class="method-row">
+            <span class="method-index">01</span>
+            <h3 class="method-name">Percepção</h3>
+            <p class="method-desc">Ler pressão, distância e direção antes de gastar força.</p>
+          </li>
+          <li class="method-row">
+            <span class="method-index">02</span>
+            <h3 class="method-name">Posição</h3>
+            <p class="method-desc">Colocar o corpo em um lugar que faça sentido.</p>
+          </li>
+          <li class="method-row">
+            <span class="method-index">03</span>
+            <h3 class="method-name">Controle</h3>
+            <p class="method-desc">Manter vantagem sem pressa e sem excesso.</p>
+          </li>
+          <li class="method-row">
+            <span class="method-index">04</span>
+            <h3 class="method-name">Golpe</h3>
+            <p class="method-desc">Finalizar ou avançar quando a construção abre caminho.</p>
+          </li>
+        </ol>
       </section>
 
+      <!-- ============================================================ -->
+      <!-- (6) CONTEÚDO / VÍDEOS — grid de slots reservados              -->
+      <!-- ============================================================ -->
       <section id="conteudo" class="section content">
         <div class="section-label">Conteúdo</div>
         <div class="content-heading">
@@ -124,23 +169,63 @@
         </div>
         <div class="video-grid">
           <article class="video-slot">
-            <span>01</span>
+            <span class="video-tag">Em breve</span>
+            <span class="video-index">01</span>
             <h3>Espaço para vídeo futuro</h3>
             <p>Técnica curta, corte vertical ou bastidor de aula.</p>
           </article>
           <article class="video-slot">
-            <span>02</span>
+            <span class="video-tag">Em breve</span>
+            <span class="video-index">02</span>
             <h3>Espaço para vídeo futuro</h3>
             <p>Explicação de conceito ou detalhe do método.</p>
           </article>
           <article class="video-slot">
-            <span>03</span>
+            <span class="video-tag">Em breve</span>
+            <span class="video-index">03</span>
             <h3>Espaço para vídeo futuro</h3>
             <p>Registro de treino, turma ou rotina no tatame.</p>
           </article>
         </div>
       </section>
 
+      <!-- ============================================================ -->
+      <!-- (7) MOMENTOS — esteira dupla em contramovimento (NEW)         -->
+      <!-- ============================================================ -->
+      <section id="momentos" class="section moments">
+        <div class="section-label">Momentos</div>
+        <div class="moments-heading">
+          <h2>Tatame, aula, rotina.</h2>
+          <p>Registro do dia a dia na TRION. Espaço preparado para receber mais fotos conforme elas aparecem.</p>
+        </div>
+
+        <div class="marquee" data-marquee aria-hidden="true">
+          <div class="marquee-row" data-marquee-row="left">
+            <div class="marquee-track" data-marquee-track>
+              <figure class="thumb"><img src="./assets/images/hero-leo-bjj.jpg" alt="" /></figure>
+              <figure class="thumb thumb-empty"><figcaption>Foto de aula — em breve</figcaption></figure>
+              <figure class="thumb"><img src="./assets/images/presence-leo-bjj.jpg" alt="" /></figure>
+              <figure class="thumb thumb-empty"><figcaption>Foto de evento — em breve</figcaption></figure>
+              <figure class="thumb"><img src="./assets/images/hero-leo-bjj.jpg" alt="" /></figure>
+              <figure class="thumb thumb-empty"><figcaption>Foto de treino — em breve</figcaption></figure>
+            </div>
+          </div>
+          <div class="marquee-row" data-marquee-row="right">
+            <div class="marquee-track" data-marquee-track>
+              <figure class="thumb thumb-empty"><figcaption>Foto de turma — em breve</figcaption></figure>
+              <figure class="thumb"><img src="./assets/images/presence-leo-bjj.jpg" alt="" /></figure>
+              <figure class="thumb thumb-empty"><figcaption>Foto de tatame — em breve</figcaption></figure>
+              <figure class="thumb"><img src="./assets/images/hero-leo-bjj.jpg" alt="" /></figure>
+              <figure class="thumb thumb-empty"><figcaption>Foto de rotina — em breve</figcaption></figure>
+              <figure class="thumb"><img src="./assets/images/presence-leo-bjj.jpg" alt="" /></figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- (8) PRESENÇA — frase de impacto isolada sobre foto            -->
+      <!-- ============================================================ -->
       <section class="section presence">
         <div class="presence-inner">
           <p class="eyebrow">Presença</p>
@@ -148,24 +233,29 @@
         </div>
       </section>
 
+      <!-- ============================================================ -->
+      <!-- (9) CONTATO + FOOTER curvo                                    -->
+      <!-- ============================================================ -->
       <section id="contato" class="section contact">
-        <div class="section-label">Contato</div>
-        <div class="contact-grid">
-          <div>
-            <h2>Fala comigo.</h2>
-            <p>
-              Para ver aula, rotina e conteúdo, o Instagram é o melhor lugar. Para tirar dúvida ou marcar
-              uma aula experimental, chama no WhatsApp.
-            </p>
-          </div>
+        <div class="contact-inner">
+          <p class="eyebrow contact-eyebrow">Contato</p>
+          <h2 class="contact-headline">
+            Fala
+            <span class="contact-avatar" aria-hidden="true">
+              <img src="./assets/images/presence-leo-bjj.jpg" alt="" />
+            </span>
+            comigo.
+          </h2>
+          <p class="contact-copy">
+            Para ver aula, rotina e conteúdo, o Instagram é o melhor lugar. Para tirar dúvida ou marcar
+            uma aula experimental, chama no WhatsApp.
+          </p>
           <div class="contact-actions">
-            <a class="contact-link" href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer">
-              <span>Instagram</span>
-              <strong>@leothaylor</strong>
+            <a class="pill pill-solid pill-lg" href="https://wa.me/5521982808635" target="_blank" rel="noreferrer" data-magnetic>
+              WhatsApp · 21 98280-8635
             </a>
-            <a class="contact-link" href="https://wa.me/5521982808635" target="_blank" rel="noreferrer">
-              <span>WhatsApp</span>
-              <strong>21 98280-8635</strong>
+            <a class="pill pill-line pill-lg" href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer" data-magnetic>
+              Instagram · @leothaylor
             </a>
           </div>
         </div>
@@ -177,6 +267,9 @@
       <span>Jiu-jitsu | Rio de Janeiro</span>
     </footer>
 
-    <script src="./script.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script defer src="./script.js"></script>
   </body>
 </html>
