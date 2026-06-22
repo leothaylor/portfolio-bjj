@@ -68,7 +68,7 @@
     if (!hasLenis || reduceMotion || isTouch || isSmall) return;
 
     lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.2, // snappier: page catches up to the wheel fast (kills the "delay")
       wheelMultiplier: 1,
       smoothWheel: true,
     });
@@ -306,7 +306,7 @@
   function runPreloader(onDone) {
     const pre = document.querySelector("[data-preloader]");
     const textEl = pre ? pre.querySelector("[data-preloader-text]") : null;
-    const words = ["Oss", "Olá", "Hello", "Hola", "Ciao", "こんにちは", "Salut"];
+    const words = ["Oss", "Olá", "Hello"];
 
     if (!pre || !textEl) {
       onDone();
@@ -327,7 +327,7 @@
 
     // Timer-based failsafe: guarantees scroll unlocks even if the rAF-driven
     // timeline is throttled or GSAP stalls (timers are not rAF-throttled).
-    const failsafe = window.setTimeout(finish, 9000);
+    const failsafe = window.setTimeout(finish, 6000);
 
     // Reduced motion or no GSAP: show one greeting briefly, then reveal.
     if (reduceMotion || !hasGsap) {
