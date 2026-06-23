@@ -746,20 +746,38 @@ p {
   position: relative;
   z-index: 2;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px;
   margin-top: calc(-1 * clamp(28px, 6vw, 72px));
-  padding: clamp(64px, 8vw, 104px) clamp(18px, 5vw, 64px) clamp(28px, 4vw, 44px);
-  border-radius: clamp(36px, 7vw, 88px) clamp(36px, 7vw, 88px) 0 0;
-  color: rgba(231, 225, 207, 0.78);
+  /* Curva (cortina) só no canto superior esquerdo; o canto direito é reto. */
+  border-radius: clamp(36px, 7vw, 88px) 0 0 0;
+  overflow: hidden;
   background: var(--green-deep);
   font-size: 0.92rem;
   font-weight: 800;
 }
 
-.site-footer span:first-child {
-  color: var(--paper);
+.footer-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Bloco preto (maior, ~78%) — fundo na cor mais escura do footer */
+.footer-block-main {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px);
+  background: var(--green-deep);
+  color: rgba(231, 225, 207, 0.86);
+}
+
+/* Bloco vermelho (ponta da faixa, ~22%) — canto reto */
+.footer-block-accent {
+  width: 22%;
+  min-width: 150px;
+  padding: clamp(40px, 6vw, 72px) 18px;
+  background: #c23b2e;
+  color: #f9e4e0;
+  justify-content: center;
+  text-align: center;
 }
 
 /* ================================================================== */
@@ -865,6 +883,16 @@ p {
   .hero-badge {
     left: 16px;
     right: auto;
+  }
+
+  /* Footer faixa preta: empilha (bloco preto em cima, vermelho embaixo) */
+  .site-footer {
+    flex-direction: column;
+  }
+
+  .footer-block-accent {
+    width: 100%;
+    min-width: 0;
   }
 }
 
