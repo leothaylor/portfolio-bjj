@@ -885,14 +885,12 @@ p {
     right: auto;
   }
 
-  /* Footer faixa preta: empilha (bloco preto em cima, vermelho embaixo) */
-  .site-footer {
-    flex-direction: column;
-  }
-
+  /* Footer faixa preta: mantém os dois blocos lado a lado (igual ao desktop),
+     só ajusta a ponta vermelha para caber bem em telas estreitas. */
   .footer-block-accent {
-    width: 100%;
-    min-width: 0;
+    min-width: 116px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
