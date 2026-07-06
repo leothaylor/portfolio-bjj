@@ -18,7 +18,8 @@
   --line: rgba(42, 40, 24, 0.16);
   --line-soft: rgba(42, 40, 24, 0.09);
 
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  /* Fonte do site original (Nunito) também nos títulos, a pedido. */
+  --serif: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --pad: clamp(20px, 5vw, 96px);
@@ -53,11 +54,10 @@ ul, ol { list-style: none; }
 /* ---- Tipografia base ------------------------------------------------ */
 .pv2-display {
   font-family: var(--serif);
-  font-weight: 500;
+  font-weight: 900;
   color: var(--sage);
   line-height: 0.98;
-  letter-spacing: -0.015em;
-  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
 }
 
 .pv2-kicker {
@@ -139,14 +139,14 @@ p { color: var(--ink-2); }
 }
 .pv2-loader-mark {
   font-size: clamp(2.4rem, 7vw, 4rem);
-  font-weight: 600;
+  font-weight: 900;
   color: var(--sage);
   letter-spacing: 0.02em;
 }
 .pv2-loader-word {
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: rgba(226, 223, 200, 0.7);
-  font-style: italic;
+  font-weight: 700;
 }
 .pv2-loader-bar {
   width: min(240px, 60vw);
@@ -182,7 +182,7 @@ p { color: var(--ink-2); }
   box-shadow: 0 1px 0 var(--line-soft);
 }
 .pv2-brand { display: grid; line-height: 1.05; justify-self: start; }
-.pv2-brand-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+.pv2-brand-name { font-family: var(--serif); font-weight: 900; font-size: 1.05rem; color: var(--ink); }
 .pv2-brand-sub {
   font-size: 0.62rem; font-weight: 800; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--teal);
@@ -219,7 +219,7 @@ p { color: var(--ink-2); }
 .pv2-menu.is-open { transform: translateY(0); }
 .pv2-menu a {
   font-family: var(--serif); font-size: clamp(2.2rem, 11vw, 3.4rem);
-  font-weight: 500; color: var(--sage); padding: 8px 0;
+  font-weight: 900; letter-spacing: -0.02em; color: var(--sage); padding: 8px 0;
   border-bottom: 1px solid rgba(226, 223, 200, 0.14);
 }
 
@@ -251,7 +251,7 @@ h1.pv2-display { }
 }
 .pv2-hero h1 .line { display: block; overflow: hidden; }
 .pv2-hero h1 .line > span { display: block; }
-.pv2-hero h1 .em { font-style: italic; color: var(--teal); font-weight: 500; }
+.pv2-hero h1 .em { color: var(--teal); font-weight: 900; }
 
 .pv2-lead { max-width: 30ch; margin-bottom: 38px; }
 
@@ -320,7 +320,7 @@ h1.pv2-display { }
 .pv2-ticker-track span {
   display: inline-flex; align-items: center;
   font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-style: italic; color: var(--sage); white-space: nowrap;
+  font-weight: 800; letter-spacing: -0.01em; color: var(--sage); white-space: nowrap;
   padding-right: 0.4em;
 }
 .pv2-ticker-track i { color: var(--teal); font-style: normal; padding: 0 0.5em; }
@@ -342,7 +342,7 @@ h1.pv2-display { }
   border-bottom: 1px solid var(--line);
 }
 .pv2-rule.light { border-color: rgba(226, 223, 200, 0.18); }
-.pv2-index { font-family: var(--serif); font-size: 0.9rem; color: var(--teal); font-weight: 600; }
+.pv2-index { font-family: var(--serif); font-size: 0.9rem; color: var(--teal); font-weight: 800; }
 .pv2-tag {
   font-size: 0.72rem; font-weight: 800; letter-spacing: 0.24em;
   text-transform: uppercase; color: var(--ink-2);
@@ -386,9 +386,9 @@ h1.pv2-display { }
 .pv2-step.is-active { opacity: 1; }
 .pv2-step-num { font-family: var(--serif); font-size: clamp(1.1rem, 1.6vw, 1.5rem); color: var(--teal); }
 .pv2-step-body h3 {
-  font-family: var(--serif); font-weight: 500; color: var(--sage);
+  font-family: var(--serif); font-weight: 900; color: var(--sage);
   font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 0.95; margin-bottom: 12px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 .pv2-step.is-active .pv2-step-body h3 { color: var(--teal); }
 .pv2-step-body p { font-size: clamp(1rem, 1.3vw, 1.18rem); max-width: 34ch; }
@@ -417,8 +417,8 @@ h1.pv2-display { }
 .pv2-quote blockquote {
   font-size: clamp(1.7rem, 4vw, 3.5rem);
   color: var(--paper);
-  line-height: 1.12;
-  font-weight: 400;
+  line-height: 1.14;
+  font-weight: 800;
 }
 
 /* ---- CONTEÚDO ------------------------------------------------------- */
@@ -451,7 +451,7 @@ h1.pv2-display { }
   font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
 }
 .pv2-slot-num { font-family: var(--serif); color: var(--teal); font-size: 1.1rem; }
-.pv2-slot h3 { font-family: var(--serif); font-weight: 500; color: var(--sage); font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
+.pv2-slot h3 { font-family: var(--serif); font-weight: 800; color: var(--sage); font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
 .pv2-slot p { font-size: 0.98rem; }
 
 /* ---- MOMENTOS (galeria horizontal pinada) -------------------------- */
@@ -503,7 +503,7 @@ h1.pv2-display { }
 }
 .pv2-contact-list a:hover { padding-left: clamp(10px, 2vw, 28px); }
 .pv2-c-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #9fd8c5; }
-.pv2-c-value { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 3.6rem); color: var(--paper); font-weight: 500; }
+.pv2-c-value { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 3.6rem); color: var(--paper); font-weight: 800; letter-spacing: -0.01em; }
 .pv2-c-arrow { font-size: 1.6rem; color: var(--sage); transition: transform 0.5s var(--ease); }
 .pv2-contact-list a:hover .pv2-c-arrow { transform: translate(6px, -6px); color: var(--teal); }
 
