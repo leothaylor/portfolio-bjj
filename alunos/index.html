@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#E2DFC8" />
+    <title>Área do Aluno · Leo Thaylor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #e2dfc8;
+        --paper-2: #edebdb;
+        --ink: #3a3826;
+        --ink-2: #6a6750;
+        --teal: #0a8f6f;
+        --teal-deep: #076a53;
+        --line: rgba(58, 56, 38, 0.16);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      .login {
+        width: 100%;
+        max-width: 360px;
+      }
+      .brand {
+        font-weight: 900;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+        margin: 0 0 28px;
+      }
+      .brand small {
+        display: block;
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-top: 2px;
+      }
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+        margin: 0 0 26px;
+      }
+      label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-2);
+        margin: 0 0 7px;
+      }
+      .field { margin-bottom: 16px; }
+      input {
+        width: 100%;
+        height: 50px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper-2);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        transition: border-color 0.2s;
+      }
+      input:focus {
+        outline: none;
+        border-color: var(--teal);
+      }
+      button {
+        width: 100%;
+        height: 52px;
+        margin-top: 8px;
+        border: 0;
+        border-radius: 100px;
+        background: var(--teal);
+        color: #f3efe1;
+        font-family: inherit;
+        font-size: 0.98rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        transition: background 0.25s;
+      }
+      button:hover, button:focus-visible { background: var(--teal-deep); }
+      .error {
+        margin: 14px 0 0;
+        min-height: 1.2em;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #b23b2e;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="login">
+      <p class="brand">Leo Thaylor<small>Brazilian Jiu-Jitsu</small></p>
+      <h1>Área do Aluno · Turma 10hrs</h1>
+      <form id="loginForm" autocomplete="off">
+        <div class="field">
+          <label for="login">Login</label>
+          <input id="login" name="login" type="text" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit">Entrar</button>
+        <p class="error" id="error" role="alert" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+        var USER = "aluno";
+        var PASS = "alunodas10";
+
+        // Já autenticado → vai direto pro dashboard.
+        if (sessionStorage.getItem("bjj_auth") === "true") {
+          window.location.replace("dashboard.html");
+          return;
+        }
+
+        var form = document.getElementById("loginForm");
+        var error = document.getElementById("error");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var login = document.getElementById("login").value.trim();
+          var senha = document.getElementById("senha").value;
+          if (login === USER && senha === PASS) {
+            sessionStorage.setItem("bjj_auth", "true");
+            window.location.href = "dashboard.html";
+          } else {
+            error.textContent = "Login ou senha incorretos";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
