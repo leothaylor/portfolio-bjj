@@ -207,6 +207,18 @@ p { color: var(--ink-2); }
 }
 .pv2-burger { display: none; }
 
+/* CTA "Área do Aluno" no header */
+.pv2-nav a.pv2-nav-cta {
+  padding: 9px 18px;
+  border-radius: 100px;
+  background: var(--teal);
+  color: #f3efe1;
+  letter-spacing: 0.1em;
+  transition: background 0.3s var(--ease), color 0.3s;
+}
+.pv2-nav a.pv2-nav-cta::after { display: none; }
+.pv2-nav a.pv2-nav-cta:hover { background: var(--teal-deep); color: #fff; }
+
 /* ---- Menu móvel ----------------------------------------------------- */
 .pv2-menu {
   position: fixed; inset: 0; z-index: 55;
@@ -222,6 +234,7 @@ p { color: var(--ink-2); }
   font-weight: 900; letter-spacing: -0.02em; color: var(--sage); padding: 8px 0;
   border-bottom: 1px solid rgba(226, 223, 200, 0.14);
 }
+.pv2-menu a.pv2-menu-cta { color: var(--teal); }
 
 /* ---- HERO ----------------------------------------------------------- */
 .pv2-hero {
