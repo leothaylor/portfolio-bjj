@@ -1385,15 +1385,19 @@
     <script>
       (function initFirstClassLightbox() {
         const lightbox = document.querySelector("[data-lightbox]");
+
         const lightboxImage = document.querySelector(
           "[data-lightbox-image]"
         );
+
         const lightboxCaption = document.querySelector(
           "[data-lightbox-caption]"
         );
+
         const closeButton = document.querySelector(
           "[data-lightbox-close]"
         );
+
         const triggers = Array.from(
           document.querySelectorAll("[data-lightbox-trigger]")
         );
@@ -1445,14 +1449,17 @@
           lightbox.setAttribute("aria-hidden", "true");
           document.body.classList.remove("lightbox-open");
 
-          window.setTimeout(() => {
-            lightboxImage.removeAttribute("src");
-            lightboxImage.alt = "";
-            lightboxCaption.textContent = "";
-          }, 350);
+          /*
+           * O src da imagem ampliada permanece carregado.
+           * Isso evita que o navegador descarte ou deixe de repintar
+           * a miniatura correspondente depois do fechamento.
+           */
+          lightboxCaption.textContent = "";
 
           if (activeTrigger) {
-            activeTrigger.focus();
+            activeTrigger.focus({
+              preventScroll: true
+            });
           }
 
           activeTrigger = null;
