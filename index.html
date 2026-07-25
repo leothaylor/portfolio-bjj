@@ -9,6 +9,33 @@
     />
     <meta name="theme-color" content="#E2DFC8" />
     <title>Leo Thaylor — Brazilian Jiu-Jitsu</title>
+    <link rel="canonical" href="https://leothaylor.github.io/portfolio-bjj/" />
+
+    <meta property="og:title" content="Leo Thaylor — Brazilian Jiu-Jitsu" />
+    <meta
+      property="og:description"
+      content="Portfólio premium de Leo Thaylor — faixa preta de jiu-jitsu e professor na TRION, Rio de Janeiro."
+    />
+    <meta property="og:url" content="https://leothaylor.github.io/portfolio-bjj/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://leothaylor.github.io/portfolio-bjj/assets/images/hero-leo-bjj.jpg"
+    />
+    <meta property="og:image:alt" content="Leo Thaylor de kimono na Trion" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Leo Thaylor — Brazilian Jiu-Jitsu" />
+    <meta
+      name="twitter:description"
+      content="Portfólio premium de Leo Thaylor — faixa preta de jiu-jitsu e professor na TRION, Rio de Janeiro."
+    />
+    <meta
+      name="twitter:image"
+      content="https://leothaylor.github.io/portfolio-bjj/assets/images/hero-leo-bjj.jpg"
+    />
+    <meta name="twitter:image:alt" content="Leo Thaylor de kimono na Trion" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +43,107 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./premium-v2.css" />
+
+    <style id="portfolio-location-styles">
+      .pv2-location {
+        padding: clamp(80px, 12vh, 150px) var(--pad);
+        border-top: 1px solid var(--line);
+        background: var(--paper-2);
+      }
+
+      .pv2-location__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+        align-items: start;
+        gap: clamp(36px, 6vw, 90px);
+      }
+
+      .pv2-location__content,
+      .pv2-location__map {
+        min-width: 0;
+      }
+
+      .pv2-location__title {
+        margin-bottom: 24px;
+        font-size: clamp(2.6rem, 6.4vw, 6rem);
+      }
+
+      .pv2-location__copy {
+        max-width: 40ch;
+        margin-bottom: 32px;
+        font-size: clamp(1rem, 1.2vw, 1.12rem);
+      }
+
+      .pv2-location__address {
+        display: grid;
+        gap: 4px;
+        max-width: 42ch;
+        margin-bottom: 32px;
+        padding: 24px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        color: var(--ink-2);
+        font-style: normal;
+      }
+
+      .pv2-location__address strong {
+        margin-bottom: 6px;
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        font-weight: 900;
+      }
+
+      .pv2-location__address span {
+        display: block;
+      }
+
+      .pv2-location__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .pv2-location__map {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--paper-3);
+      }
+
+      .pv2-location__frame {
+        display: block;
+        width: 100%;
+        height: clamp(340px, 40vw, 480px);
+        border: 0;
+      }
+
+      @media (max-width: 1024px) {
+        .pv2-location__inner {
+          grid-template-columns: 1fr;
+        }
+
+        .pv2-location__content {
+          max-width: 720px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .pv2-location__actions {
+          align-items: stretch;
+        }
+
+        .pv2-location__actions .pv2-btn {
+          width: 100%;
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+
+        .pv2-location__frame {
+          height: 320px;
+        }
+      }
+    </style>
   </head>
   <body class="pv2 is-loading">
     <!-- Grain overlay (textura sutil premium) -->
@@ -43,7 +171,7 @@
         <a href="#metodo" data-cursor-target>Método</a>
         <a href="#momentos" data-cursor-target>Momentos</a>
         <a href="#contato" data-cursor-target>Contato</a>
-        <a href="./alunos/" class="pv2-nav-cta" data-cursor-target>Área do Aluno</a>
+        <a href="./alunos/" class="pv2-nav-cta" data-config-link="studentArea" data-cursor-target>Área do Aluno</a>
       </nav>
       <span class="pv2-place">Rio de Janeiro</span>
       <button class="pv2-burger" type="button" data-burger aria-expanded="false" aria-controls="pv2-menu" aria-label="Menu">
@@ -56,7 +184,7 @@
       <a href="#metodo">Método</a>
       <a href="#momentos">Momentos</a>
       <a href="#contato">Contato</a>
-      <a href="./alunos/" class="pv2-menu-cta">Área do Aluno</a>
+      <a href="./alunos/" class="pv2-menu-cta" data-config-link="studentArea">Área do Aluno</a>
     </nav>
 
     <main>
@@ -75,19 +203,19 @@
               É percepção que vira técnica. Faixa preta e professor na TRION, Rio de Janeiro.
             </p>
             <div class="pv2-cta" data-hero="3">
-              <a class="pv2-btn pv2-btn-solid" href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noreferrer" data-magnetic data-cursor-target>
+              <a class="pv2-btn pv2-btn-solid" href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noopener noreferrer" data-config-link="whatsapp" data-track="whatsapp_hero" data-magnetic data-cursor-target>
                 <span>WhatsApp</span>
               </a>
 
               <!-- Google Forms: segundo caminho de agendamento; o WhatsApp permanece como opção principal. -->
-              <a id="form-agendamento" class="pv2-btn pv2-btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform" target="_blank" rel="noopener noreferrer" data-cursor-target>
+              <a id="form-agendamento" class="pv2-btn pv2-btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform" target="_blank" rel="noopener noreferrer" data-config-link="form" data-track="form_hero" data-cursor-target>
                 <span>Solicitar aula experimental</span>
               </a>
 
-              <a class="pv2-btn pv2-btn-line" href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer" data-cursor-target>
+              <a class="pv2-btn pv2-btn-line" href="https://instagram.com/leothaylor" target="_blank" rel="noopener noreferrer" data-config-link="instagram" data-cursor-target>
                 <span>Instagram</span>
               </a>
-              <a class="pv2-btn pv2-btn-line" href="https://www.instagram.com/studio.trion/" target="_blank" rel="noreferrer" data-cursor-target>
+              <a class="pv2-btn pv2-btn-line" href="https://www.instagram.com/studio.trion/" target="_blank" rel="noopener noreferrer" data-config-link="trion" data-cursor-target>
                 <span>TRION</span>
               </a>
             </div>
@@ -252,6 +380,53 @@
         </div>
       </section>
 
+      <!-- ============================== LOCALIZAÇÃO ======================= -->
+      <section id="localizacao" class="pv2-location">
+        <div class="pv2-rule" data-reveal>
+          <span class="pv2-tag">Treinos presenciais</span>
+        </div>
+
+        <div class="pv2-location__inner">
+          <div class="pv2-location__content">
+            <h2 class="pv2-display pv2-location__title" data-reveal-lines>Onde eu dou aula.</h2>
+            <p class="pv2-location__copy" data-reveal>
+              As aulas acontecem na Trion. Veja a localização ou abra a rota diretamente no Google Maps.
+            </p>
+
+            <address class="pv2-location__address" data-reveal>
+              <strong data-config-text="academyName">Studio Trion</strong>
+              <span data-config-text="addressLine1">Estrada do Engenho D'Água nº 1375</span>
+              <span data-config-text="addressLine2">Loja 112 — BR Stores</span>
+              <span data-config-text="addressLine3">Anil, Rio de Janeiro — RJ</span>
+              <span data-config-text="addressCep">CEP 22765-240</span>
+            </address>
+
+            <div class="pv2-location__actions" data-reveal>
+              <a class="pv2-btn pv2-btn-solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240" target="_blank" rel="noopener noreferrer" data-config-link="mapsRoute" data-track="maps_route" data-cursor-target>
+                <span>Abrir rota</span>
+              </a>
+              <a class="pv2-btn pv2-btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform" target="_blank" rel="noopener noreferrer" data-config-link="form" data-track="form_location" data-cursor-target>
+                <span>Solicitar aula experimental</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="pv2-location__map" data-reveal>
+            <iframe
+              class="pv2-location__frame"
+              title="Localização do Studio Trion no Google Maps"
+              src="https://www.google.com/maps?q=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240&amp;output=embed"
+              width="100%"
+              height="420"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+              data-config-src="mapsEmbed"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       <!-- ============================== CONTATO =========================== -->
       <section id="contato" class="pv2-contact">
         <div class="pv2-rule light" data-reveal><span class="pv2-index">05</span><span class="pv2-tag">Contato</span></div>
@@ -262,21 +437,21 @@
         </p>
         <ul class="pv2-contact-list">
           <li data-reveal>
-            <a href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noreferrer" data-cursor-target>
+            <a href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noopener noreferrer" data-config-link="whatsapp" data-track="whatsapp_contact" data-cursor-target>
               <span class="pv2-c-label">WhatsApp</span>
               <span class="pv2-c-value">21 98280-8635</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
             </a>
           </li>
           <li data-reveal>
-            <a href="https://instagram.com/leothaylor" target="_blank" rel="noreferrer" data-cursor-target>
+            <a href="https://instagram.com/leothaylor" target="_blank" rel="noopener noreferrer" data-config-link="instagram" data-cursor-target>
               <span class="pv2-c-label">Instagram</span>
               <span class="pv2-c-value">@leothaylor</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
             </a>
           </li>
           <li data-reveal>
-            <a href="https://www.instagram.com/studio.trion/" target="_blank" rel="noreferrer" data-cursor-target>
+            <a href="https://www.instagram.com/studio.trion/" target="_blank" rel="noopener noreferrer" data-config-link="trion" data-cursor-target>
               <span class="pv2-c-label">TRION</span>
               <span class="pv2-c-value">@studio.trion</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
@@ -294,6 +469,78 @@
         <span>Leo Thaylor</span>
       </div>
     </footer>
+
+    <!-- PORTFOLIO CONFIG: INÍCIO -->
+    <script>
+      window.PORTFOLIO_CONFIG = Object.freeze({
+        whatsappNumber: "5521982808635",
+        whatsappMessage:
+          "Olá, Leo. Vim pelo seu site e gostaria de agendar uma aula experimental de jiu-jitsu na Trion.",
+        whatsappUrl:
+          "https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion.",
+        formUrl:
+          "https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform",
+        mapsRouteUrl:
+          "https://www.google.com/maps/dir/?api=1&destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240",
+        mapsEmbedUrl:
+          "https://www.google.com/maps?q=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240&output=embed",
+        instagramUrl: "https://instagram.com/leothaylor",
+        trionUrl: "https://www.instagram.com/studio.trion/",
+        studentAreaUrl: "./alunos/",
+        academyName: "Studio Trion",
+        address: Object.freeze({
+          line1: "Estrada do Engenho D'Água nº 1375",
+          line2: "Loja 112 — BR Stores",
+          line3: "Anil, Rio de Janeiro — RJ",
+          cep: "CEP 22765-240"
+        })
+      });
+
+      (function syncPortfolioConfig() {
+        const config = window.PORTFOLIO_CONFIG;
+        if (!config) return;
+
+        const linkMap = {
+          whatsapp: config.whatsappUrl,
+          form: config.formUrl,
+          mapsRoute: config.mapsRouteUrl,
+          instagram: config.instagramUrl,
+          trion: config.trionUrl,
+          studentArea: config.studentAreaUrl
+        };
+
+        document.querySelectorAll("[data-config-link]").forEach((element) => {
+          const key = element.getAttribute("data-config-link");
+          const value = linkMap[key];
+          if (value && element.getAttribute("href") !== value) element.setAttribute("href", value);
+        });
+
+        const sourceMap = {
+          mapsEmbed: config.mapsEmbedUrl
+        };
+
+        document.querySelectorAll("[data-config-src]").forEach((element) => {
+          const key = element.getAttribute("data-config-src");
+          const value = sourceMap[key];
+          if (value && element.getAttribute("src") !== value) element.setAttribute("src", value);
+        });
+
+        const textMap = {
+          academyName: config.academyName,
+          addressLine1: config.address.line1,
+          addressLine2: config.address.line2,
+          addressLine3: config.address.line3,
+          addressCep: config.address.cep
+        };
+
+        document.querySelectorAll("[data-config-text]").forEach((element) => {
+          const key = element.getAttribute("data-config-text");
+          const value = textMap[key];
+          if (value && element.textContent !== value) element.textContent = value;
+        });
+      })();
+    </script>
+    <!-- PORTFOLIO CONFIG: FIM -->
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
