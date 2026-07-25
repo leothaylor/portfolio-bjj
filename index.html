@@ -144,7 +144,40 @@
         }
       }
     </style>
+
+    <style id="portfolio-card-media-styles">
+      .pv2-slot-media {
+        display: block;
+        flex: 0 0 auto;
+        width: calc(100% + 56px);
+        height: clamp(150px, 16vw, 210px);
+        margin: -28px -28px auto;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper-3);
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(0.9) contrast(1.02);
+        transition: transform 0.9s var(--ease);
+      }
+
+      .pv2-slot:hover .pv2-slot-media {
+        transform: scale(1.03);
+      }
+
+      @media (max-width: 760px) {
+        .pv2-slot-media {
+          height: clamp(180px, 52vw, 260px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pv2-slot:hover .pv2-slot-media {
+          transform: none;
+        }
+      }
+    </style>
   </head>
+
   <body class="pv2 is-loading">
     <!-- Grain overlay (textura sutil premium) -->
     <div class="pv2-grain" aria-hidden="true"></div>
@@ -166,16 +199,34 @@
         <span class="pv2-brand-name">Leo Thaylor</span>
         <span class="pv2-brand-sub">Brazilian Jiu-Jitsu</span>
       </a>
+
       <nav class="pv2-nav" aria-label="Navegação">
         <a href="#sobre" data-cursor-target>Sobre</a>
         <a href="#metodo" data-cursor-target>Método</a>
         <a href="#momentos" data-cursor-target>Momentos</a>
         <a href="#contato" data-cursor-target>Contato</a>
-        <a href="./alunos/" class="pv2-nav-cta" data-config-link="studentArea" data-cursor-target>Área do Aluno</a>
+        <a
+          href="./alunos/"
+          class="pv2-nav-cta"
+          data-config-link="studentArea"
+          data-cursor-target
+        >
+          Área do Aluno
+        </a>
       </nav>
+
       <span class="pv2-place">Rio de Janeiro</span>
-      <button class="pv2-burger" type="button" data-burger aria-expanded="false" aria-controls="pv2-menu" aria-label="Menu">
-        <span></span><span></span>
+
+      <button
+        class="pv2-burger"
+        type="button"
+        data-burger
+        aria-expanded="false"
+        aria-controls="pv2-menu"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
       </button>
     </header>
 
@@ -184,7 +235,9 @@
       <a href="#metodo">Método</a>
       <a href="#momentos">Momentos</a>
       <a href="#contato">Contato</a>
-      <a href="./alunos/" class="pv2-menu-cta" data-config-link="studentArea">Área do Aluno</a>
+      <a href="./alunos/" class="pv2-menu-cta" data-config-link="studentArea">
+        Área do Aluno
+      </a>
     </nav>
 
     <main>
@@ -192,31 +245,68 @@
       <section id="inicio" class="pv2-hero">
         <div class="pv2-hero-grid">
           <div class="pv2-hero-copy">
-            <p class="pv2-kicker" data-hero="1"><span>@leothaylor</span></p>
+            <p class="pv2-kicker" data-hero="1">
+              <span>@leothaylor</span>
+            </p>
+
             <h1 class="pv2-display" data-hero-title>
               <span class="line"><span>Jiu-jitsu</span></span>
               <span class="line"><span>para quem</span></span>
               <span class="line"><span>quer</span></span>
               <span class="line"><span class="em">começar.</span></span>
             </h1>
+
             <p class="pv2-lead" data-hero="2">
               Primeira aula com introdução específica para iniciantes. Técnica explicada com clareza na TRION,
               no Rio de Janeiro.
             </p>
+
             <div class="pv2-cta" data-hero="3">
-              <a class="pv2-btn pv2-btn-solid" href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noopener noreferrer" data-config-link="whatsapp" data-track="whatsapp_hero" data-magnetic data-cursor-target>
+              <a
+                class="pv2-btn pv2-btn-solid"
+                href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion."
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="whatsapp"
+                data-track="whatsapp_hero"
+                data-magnetic
+                data-cursor-target
+              >
                 <span>WhatsApp</span>
               </a>
 
-              <!-- Google Forms: segundo caminho de agendamento; o WhatsApp permanece como opção principal. -->
-              <a id="form-agendamento" class="pv2-btn pv2-btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform" target="_blank" rel="noopener noreferrer" data-config-link="form" data-track="form_hero" data-cursor-target>
+              <a
+                id="form-agendamento"
+                class="pv2-btn pv2-btn-line"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="form"
+                data-track="form_hero"
+                data-cursor-target
+              >
                 <span>Solicitar aula experimental</span>
               </a>
 
-              <a class="pv2-btn pv2-btn-line" href="https://instagram.com/leothaylor" target="_blank" rel="noopener noreferrer" data-config-link="instagram" data-cursor-target>
+              <a
+                class="pv2-btn pv2-btn-line"
+                href="https://instagram.com/leothaylor"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="instagram"
+                data-cursor-target
+              >
                 <span>Instagram</span>
               </a>
-              <a class="pv2-btn pv2-btn-line" href="https://www.instagram.com/studio.trion/" target="_blank" rel="noopener noreferrer" data-config-link="trion" data-cursor-target>
+
+              <a
+                class="pv2-btn pv2-btn-line"
+                href="https://www.instagram.com/studio.trion/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="trion"
+                data-cursor-target
+              >
                 <span>TRION</span>
               </a>
             </div>
@@ -224,8 +314,13 @@
 
           <figure class="pv2-hero-portrait" data-hero-portrait>
             <div class="pv2-portrait-mask">
-              <img src="./assets/images/hero-leo-bjj.jpg" alt="Leo Thaylor, professor de jiu-jitsu, de kimono na TRION" data-parallax-img />
+              <img
+                src="./assets/images/hero-leo-bjj.jpg"
+                alt="Leo Thaylor, professor de jiu-jitsu, de kimono na TRION"
+                data-parallax-img
+              />
             </div>
+
             <figcaption>
               <span class="pv2-dot" aria-hidden="true"></span>
               Faixa preta · TRION
@@ -233,7 +328,6 @@
           </figure>
         </div>
 
-        <!-- Ticker do método -->
         <div class="pv2-ticker" aria-hidden="true">
           <div class="pv2-ticker-track" data-ticker>
             <span>Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i></span>
@@ -244,22 +338,29 @@
         </div>
 
         <a class="pv2-scrollcue" href="#sobre" data-cursor-target aria-label="Rolar">
-          <span>Role</span><i></i>
+          <span>Role</span>
+          <i></i>
         </a>
       </section>
 
       <!-- ============================== SOBRE ============================== -->
       <section id="sobre" class="pv2-about">
-        <div class="pv2-rule" data-reveal><span class="pv2-index">01</span><span class="pv2-tag">Trajetória</span></div>
+        <div class="pv2-rule" data-reveal>
+          <span class="pv2-index">01</span>
+          <span class="pv2-tag">Trajetória</span>
+        </div>
+
         <div class="pv2-about-grid">
           <h2 class="pv2-display pv2-about-title" data-reveal-lines>
             Comecei aos 16.<br />Ainda treino<br />todos os dias.
           </h2>
+
           <div class="pv2-about-copy">
             <p data-reveal>
               Sou Leo Thaylor, faixa preta de jiu-jitsu e professor contratado pela TRION, no Rio de Janeiro.
               Treinei a maior parte da vida na academia Marcio Rodrigues antes de chegar aqui.
             </p>
+
             <p data-reveal>
               Já dei aula para crianças e adultos, em academia e em colégio. Para quem está começando, a primeira
               aula tem uma introdução específica antes da prática, sem exigir experiência anterior.
@@ -268,18 +369,28 @@
         </div>
       </section>
 
-      <!-- ============================== MÉTODO (sticky storytelling) ====== -->
+      <!-- ============================== MÉTODO ============================= -->
       <section id="metodo" class="pv2-method">
         <div class="pv2-method-grid">
           <div class="pv2-method-sticky">
-            <div class="pv2-rule" data-reveal><span class="pv2-index">02</span><span class="pv2-tag">Como ensino</span></div>
-            <h2 class="pv2-display" data-reveal-lines>Entender primeiro.<br />Executar depois.</h2>
+            <div class="pv2-rule" data-reveal>
+              <span class="pv2-index">02</span>
+              <span class="pv2-tag">Como ensino</span>
+            </div>
+
+            <h2 class="pv2-display" data-reveal-lines>
+              Entender primeiro.<br />Executar depois.
+            </h2>
+
             <p class="pv2-method-intro" data-reveal>
               A aula não parte do princípio de que você já sabe lutar. Cada técnica é apresentada por etapas:
               você entende a posição e o objetivo, pratica o movimento e recebe correções durante o exercício.
             </p>
+
             <div class="pv2-method-progress" aria-hidden="true">
-              <span data-method-count>01</span> <i>/</i> 04
+              <span data-method-count>01</span>
+              <i>/</i>
+              04
             </div>
           </div>
 
@@ -291,6 +402,7 @@
                 <p>Você conhece a posição, o objetivo do exercício e o que precisa observar.</p>
               </div>
             </li>
+
             <li class="pv2-step" data-step="02">
               <span class="pv2-step-num">02</span>
               <div class="pv2-step-body">
@@ -298,6 +410,7 @@
                 <p>Aprende a organizar o corpo, a base e a direção antes de usar força.</p>
               </div>
             </li>
+
             <li class="pv2-step" data-step="03">
               <span class="pv2-step-num">03</span>
               <div class="pv2-step-body">
@@ -305,6 +418,7 @@
                 <p>Repete a técnica com orientação e correções durante o exercício.</p>
               </div>
             </li>
+
             <li class="pv2-step" data-step="04">
               <span class="pv2-step-num">04</span>
               <div class="pv2-step-body">
@@ -316,40 +430,81 @@
         </div>
       </section>
 
-      <!-- ============================== PRESENÇA (quote cinematográfico) == -->
+      <!-- ============================== PRESENÇA ========================== -->
       <section class="pv2-quote" data-quote>
         <div class="pv2-quote-media" aria-hidden="true">
           <img src="./assets/images/presence-leo-bjj.jpg" alt="" data-parallax-img />
         </div>
+
         <div class="pv2-quote-inner">
-          <p class="pv2-kicker light" data-reveal><span>Aprendizado</span></p>
+          <p class="pv2-kicker light" data-reveal>
+            <span>Aprendizado</span>
+          </p>
+
           <blockquote class="pv2-display" data-reveal>
             Jiu-jitsu não começa na força. Começa quando você entende o que está fazendo.
           </blockquote>
         </div>
       </section>
 
-      <!-- ============================== CONTEÚDO ========================== -->
+      <!-- ============================== PRIMEIRA AULA ===================== -->
       <section id="conteudo" class="pv2-content">
-        <div class="pv2-rule" data-reveal><span class="pv2-index">03</span><span class="pv2-tag">Primeira aula</span></div>
-        <div class="pv2-content-head">
-          <h2 class="pv2-display" data-reveal-lines>O primeiro treino<br />é para aprender.</h2>
-          <p data-reveal>A aula experimental apresenta o jiu-jitsu, o ambiente e a forma de ensino antes de você decidir continuar.</p>
+        <div class="pv2-rule" data-reveal>
+          <span class="pv2-index">03</span>
+          <span class="pv2-tag">Primeira aula</span>
         </div>
+
+        <div class="pv2-content-head">
+          <h2 class="pv2-display" data-reveal-lines>
+            O primeiro treino<br />é para aprender.
+          </h2>
+
+          <p data-reveal>
+            A aula experimental apresenta o jiu-jitsu, o ambiente e a forma de ensino antes de você decidir
+            continuar.
+          </p>
+        </div>
+
         <div class="pv2-content-grid">
           <article class="pv2-slot" data-reveal data-cursor-target>
+            <img
+              class="pv2-slot-media"
+              src="./assets/images/primeira-aula-introducao.jpg"
+              alt="Introdução de jiu-jitsu preparada para uma pessoa iniciante"
+              loading="lazy"
+              decoding="async"
+            />
+
             <span class="pv2-slot-tag">Iniciante</span>
             <span class="pv2-slot-num">01</span>
             <h3>Introdução</h3>
             <p>Uma apresentação específica para quem nunca treinou e quer entender o básico.</p>
           </article>
+
           <article class="pv2-slot" data-reveal data-cursor-target>
+            <img
+              class="pv2-slot-media"
+              src="./assets/images/primeira-aula-retomada.jpg"
+              alt="Praticante retomando o treinamento de jiu-jitsu na TRION"
+              loading="lazy"
+              decoding="async"
+            />
+
             <span class="pv2-slot-tag">Retorno</span>
             <span class="pv2-slot-num">02</span>
             <h3>Retomada</h3>
             <p>Quem já treinou pode conhecer a turma e retomar o contato com o tatame.</p>
           </article>
+
           <article class="pv2-slot" data-reveal data-cursor-target>
+            <img
+              class="pv2-slot-media"
+              src="./assets/images/primeira-aula-orientacao.jpg"
+              alt="Leo Thaylor orientando um aluno durante uma aula de jiu-jitsu"
+              loading="lazy"
+              decoding="async"
+            />
+
             <span class="pv2-slot-tag">Na prática</span>
             <span class="pv2-slot-num">03</span>
             <h3>Orientação</h3>
@@ -358,24 +513,105 @@
         </div>
       </section>
 
-      <!-- ============================== MOMENTOS (galeria horizontal) ===== -->
+      <!-- ============================== MOMENTOS ========================== -->
       <section id="momentos" class="pv2-moments">
         <div class="pv2-moments-head">
-          <div class="pv2-rule" data-reveal><span class="pv2-index">04</span><span class="pv2-tag">Momentos</span></div>
-          <h2 class="pv2-display" data-reveal-lines>Tatame, aula, rotina.</h2>
-          <p data-reveal>Registros reais das aulas e do dia a dia na TRION. <span class="pv2-drag-hint" aria-hidden="true">Role para percorrer →</span></p>
+          <div class="pv2-rule" data-reveal>
+            <span class="pv2-index">04</span>
+            <span class="pv2-tag">Momentos</span>
+          </div>
+
+          <h2 class="pv2-display" data-reveal-lines>
+            Tatame, aula, rotina.
+          </h2>
+
+          <p data-reveal>
+            Registros reais das aulas e do dia a dia na TRION.
+            <span class="pv2-drag-hint" aria-hidden="true">Role para percorrer →</span>
+          </p>
         </div>
 
         <div class="pv2-gallery" data-gallery>
           <div class="pv2-gallery-track" data-gallery-track>
-            <figure class="pv2-gtile"><img src="./assets/images/momento-01.jpg" alt="" loading="lazy" decoding="async" /><figcaption>01</figcaption></figure>
-            <figure class="pv2-gtile tall"><img src="./assets/images/momento-06.jpg" alt="" loading="lazy" decoding="async" /><figcaption>02</figcaption></figure>
-            <figure class="pv2-gtile"><img src="./assets/images/momento-03.jpg" alt="" loading="lazy" decoding="async" /><figcaption>03</figcaption></figure>
-            <figure class="pv2-gtile"><img src="./assets/images/momento-04.jpg" alt="" loading="lazy" decoding="async" /><figcaption>04</figcaption></figure>
-            <figure class="pv2-gtile tall"><img src="./assets/images/momento-05.jpg" alt="" loading="lazy" decoding="async" /><figcaption>05</figcaption></figure>
-            <figure class="pv2-gtile"><img src="./assets/images/momento-07.jpg" alt="" loading="lazy" decoding="async" /><figcaption>06</figcaption></figure>
-            <figure class="pv2-gtile"><img src="./assets/images/momento-08.jpg" alt="" loading="lazy" decoding="async" /><figcaption>07</figcaption></figure>
-            <figure class="pv2-gtile tall"><img src="./assets/images/momento-02.jpg" alt="" loading="lazy" decoding="async" /><figcaption>08</figcaption></figure>
+            <figure class="pv2-gtile">
+              <img
+                src="./assets/images/momento-01.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>01</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile tall">
+              <img
+                src="./assets/images/momento-06.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>02</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile">
+              <img
+                src="./assets/images/momento-03.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>03</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile">
+              <img
+                src="./assets/images/momento-04.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>04</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile tall">
+              <img
+                src="./assets/images/momento-05.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>05</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile">
+              <img
+                src="./assets/images/momento-07.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>06</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile">
+              <img
+                src="./assets/images/momento-08.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>07</figcaption>
+            </figure>
+
+            <figure class="pv2-gtile tall">
+              <img
+                src="./assets/images/momento-02.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>08</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -388,7 +624,10 @@
 
         <div class="pv2-location__inner">
           <div class="pv2-location__content">
-            <h2 class="pv2-display pv2-location__title" data-reveal-lines>Onde acontecem as aulas.</h2>
+            <h2 class="pv2-display pv2-location__title" data-reveal-lines>
+              Onde acontecem as aulas.
+            </h2>
+
             <p class="pv2-location__copy" data-reveal>
               As aulas acontecem na Trion, no Anil. Veja o endereço, abra a rota ou solicite uma aula
               experimental para conhecer o espaço e o treino.
@@ -403,10 +642,27 @@
             </address>
 
             <div class="pv2-location__actions" data-reveal>
-              <a class="pv2-btn pv2-btn-solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240" target="_blank" rel="noopener noreferrer" data-config-link="mapsRoute" data-track="maps_route" data-cursor-target>
+              <a
+                class="pv2-btn pv2-btn-solid"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="mapsRoute"
+                data-track="maps_route"
+                data-cursor-target
+              >
                 <span>Abrir rota</span>
               </a>
-              <a class="pv2-btn pv2-btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform" target="_blank" rel="noopener noreferrer" data-config-link="form" data-track="form_location" data-cursor-target>
+
+              <a
+                class="pv2-btn pv2-btn-line"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-config-link="form"
+                data-track="form_location"
+                data-cursor-target
+              >
                 <span>Solicitar aula experimental</span>
               </a>
             </div>
@@ -430,29 +686,58 @@
 
       <!-- ============================== CONTATO =========================== -->
       <section id="contato" class="pv2-contact">
-        <div class="pv2-rule light" data-reveal><span class="pv2-index">05</span><span class="pv2-tag">Contato</span></div>
-        <h2 class="pv2-display pv2-contact-title" data-reveal-lines>Fala comigo.</h2>
+        <div class="pv2-rule light" data-reveal>
+          <span class="pv2-index">05</span>
+          <span class="pv2-tag">Contato</span>
+        </div>
+
+        <h2 class="pv2-display pv2-contact-title" data-reveal-lines>
+          Fala comigo.
+        </h2>
+
         <p class="pv2-contact-copy" data-reveal>
           O WhatsApp é o caminho para conversar agora. O formulário serve para deixar seus dados e receber
           contato sobre a aula experimental. No Instagram, você acompanha aulas e rotina.
         </p>
+
         <ul class="pv2-contact-list">
           <li data-reveal>
-            <a href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion." target="_blank" rel="noopener noreferrer" data-config-link="whatsapp" data-track="whatsapp_contact" data-cursor-target>
+            <a
+              href="https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-config-link="whatsapp"
+              data-track="whatsapp_contact"
+              data-cursor-target
+            >
               <span class="pv2-c-label">WhatsApp</span>
               <span class="pv2-c-value">21 98280-8635</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
             </a>
           </li>
+
           <li data-reveal>
-            <a href="https://instagram.com/leothaylor" target="_blank" rel="noopener noreferrer" data-config-link="instagram" data-cursor-target>
+            <a
+              href="https://instagram.com/leothaylor"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-config-link="instagram"
+              data-cursor-target
+            >
               <span class="pv2-c-label">Instagram</span>
               <span class="pv2-c-value">@leothaylor</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
             </a>
           </li>
+
           <li data-reveal>
-            <a href="https://www.instagram.com/studio.trion/" target="_blank" rel="noopener noreferrer" data-config-link="trion" data-cursor-target>
+            <a
+              href="https://www.instagram.com/studio.trion/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-config-link="trion"
+              data-cursor-target
+            >
               <span class="pv2-c-label">TRION</span>
               <span class="pv2-c-value">@studio.trion</span>
               <span class="pv2-c-arrow" aria-hidden="true">↗</span>
@@ -466,6 +751,7 @@
       <div class="pv2-footer-main">
         <span>Aulas de jiu-jitsu | Rio de Janeiro</span>
       </div>
+
       <div class="pv2-footer-accent">
         <span>Leo Thaylor</span>
       </div>
@@ -513,7 +799,10 @@
         document.querySelectorAll("[data-config-link]").forEach((element) => {
           const key = element.getAttribute("data-config-link");
           const value = linkMap[key];
-          if (value && element.getAttribute("href") !== value) element.setAttribute("href", value);
+
+          if (value && element.getAttribute("href") !== value) {
+            element.setAttribute("href", value);
+          }
         });
 
         const sourceMap = {
@@ -523,7 +812,10 @@
         document.querySelectorAll("[data-config-src]").forEach((element) => {
           const key = element.getAttribute("data-config-src");
           const value = sourceMap[key];
-          if (value && element.getAttribute("src") !== value) element.setAttribute("src", value);
+
+          if (value && element.getAttribute("src") !== value) {
+            element.setAttribute("src", value);
+          }
         });
 
         const textMap = {
@@ -537,7 +829,10 @@
         document.querySelectorAll("[data-config-text]").forEach((element) => {
           const key = element.getAttribute("data-config-text");
           const value = textMap[key];
-          if (value && element.textContent !== value) element.textContent = value;
+
+          if (value && element.textContent !== value) {
+            element.textContent = value;
+          }
         });
       })();
     </script>
