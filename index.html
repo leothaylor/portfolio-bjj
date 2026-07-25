@@ -3,47 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
       content="Aulas de jiu-jitsu na Trion, no Rio de Janeiro, com Leo Thaylor, professor e faixa preta. Primeira aula com introdução específica para iniciantes."
     />
-    <meta name="theme-color" content="#E2DFC8" />
-    <title>Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor</title>
-    <link rel="canonical" href="https://leothaylor.github.io/portfolio-bjj/" />
 
-    <meta property="og:title" content="Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor" />
+    <meta name="theme-color" content="#E2DFC8" />
+
+    <title>Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor</title>
+
+    <link
+      rel="canonical"
+      href="https://leothaylor.github.io/portfolio-bjj/"
+    />
+
+    <meta
+      property="og:title"
+      content="Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor"
+    />
+
     <meta
       property="og:description"
       content="Aulas de jiu-jitsu na Trion, no Rio de Janeiro, com Leo Thaylor, professor e faixa preta. Primeira aula com introdução específica para iniciantes."
     />
-    <meta property="og:url" content="https://leothaylor.github.io/portfolio-bjj/" />
+
+    <meta
+      property="og:url"
+      content="https://leothaylor.github.io/portfolio-bjj/"
+    />
+
     <meta property="og:type" content="website" />
+
     <meta
       property="og:image"
       content="https://leothaylor.github.io/portfolio-bjj/assets/images/hero-leo-bjj.jpg"
     />
-    <meta property="og:image:alt" content="Leo Thaylor, professor de jiu-jitsu, de kimono na Trion" />
+
+    <meta
+      property="og:image:alt"
+      content="Leo Thaylor, professor de jiu-jitsu, de kimono na Trion"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor" />
+
+    <meta
+      name="twitter:title"
+      content="Aulas de Jiu-Jitsu no Rio de Janeiro | Leo Thaylor"
+    />
+
     <meta
       name="twitter:description"
       content="Aulas de jiu-jitsu na Trion, no Rio de Janeiro, com Leo Thaylor, professor e faixa preta. Primeira aula com introdução específica para iniciantes."
     />
+
     <meta
       name="twitter:image"
       content="https://leothaylor.github.io/portfolio-bjj/assets/images/hero-leo-bjj.jpg"
     />
-    <meta name="twitter:image:alt" content="Leo Thaylor, professor de jiu-jitsu, de kimono na Trion" />
+
+    <meta
+      name="twitter:image:alt"
+      content="Leo Thaylor, professor de jiu-jitsu, de kimono na Trion"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="./premium-v2.css" />
 
+    <!-- Estilos da seção de localização -->
     <style id="portfolio-location-styles">
       .pv2-location {
         padding: clamp(80px, 12vh, 150px) var(--pad);
@@ -145,33 +184,255 @@
       }
     </style>
 
+    <!-- Estilos das três imagens da primeira aula -->
     <style id="portfolio-card-media-styles">
-      .pv2-slot-media {
+      .pv2-slot-media-button {
+        position: relative;
         display: block;
         flex: 0 0 auto;
         width: calc(100% + 56px);
         height: clamp(150px, 16vw, 210px);
         margin: -28px -28px auto;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
         border-bottom: 1px solid var(--line);
         background: var(--paper-3);
+        color: inherit;
+        cursor: zoom-in;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .pv2-slot-media-button:focus-visible {
+        outline: 3px solid var(--teal);
+        outline-offset: -3px;
+      }
+
+      .pv2-slot-media {
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         filter: saturate(0.9) contrast(1.02);
-        transition: transform 0.9s var(--ease);
+        transition:
+          transform 0.9s var(--ease),
+          filter 0.5s var(--ease);
       }
 
-      .pv2-slot:hover .pv2-slot-media {
-        transform: scale(1.03);
+      .pv2-slot-media-button:hover .pv2-slot-media {
+        transform: scale(1.04);
+        filter: saturate(1) contrast(1.04);
+      }
+
+      .pv2-slot-media-zoom {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 0 14px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
+        background: rgba(23, 21, 18, 0.66);
+        color: #f3efe1;
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition:
+          background 0.3s var(--ease),
+          transform 0.3s var(--ease);
+      }
+
+      .pv2-slot-media-button:hover .pv2-slot-media-zoom {
+        background: var(--teal-deep);
+        transform: translateY(-2px);
       }
 
       @media (max-width: 760px) {
-        .pv2-slot-media {
+        .pv2-slot-media-button {
           height: clamp(180px, 52vw, 260px);
+        }
+
+        .pv2-slot-media-zoom {
+          right: 12px;
+          bottom: 12px;
+          min-height: 32px;
+          padding: 0 12px;
+          font-size: 0.62rem;
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .pv2-slot:hover .pv2-slot-media {
+        .pv2-slot-media,
+        .pv2-slot-media-zoom {
+          transition: none;
+        }
+
+        .pv2-slot-media-button:hover .pv2-slot-media,
+        .pv2-slot-media-button:hover .pv2-slot-media-zoom {
+          transform: none;
+        }
+      }
+    </style>
+
+    <!-- Lightbox exclusivo das três imagens da primeira aula -->
+    <style id="portfolio-lightbox-styles">
+      body.pv2.lightbox-open {
+        overflow: hidden;
+      }
+
+      .pv2-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 9997;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:
+          max(72px, env(safe-area-inset-top))
+          max(20px, env(safe-area-inset-right))
+          max(32px, env(safe-area-inset-bottom))
+          max(20px, env(safe-area-inset-left));
+        background: rgba(10, 10, 8, 0.92);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.35s var(--ease),
+          visibility 0.35s var(--ease);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .pv2-lightbox.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .pv2-lightbox__figure {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: min(1120px, 100%);
+        max-height: 100%;
+        margin: 0;
+        transform: translateY(18px) scale(0.985);
+        opacity: 0;
+        transition:
+          transform 0.45s var(--ease),
+          opacity 0.35s var(--ease);
+      }
+
+      .pv2-lightbox.is-open .pv2-lightbox__figure {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .pv2-lightbox__image {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        max-height: calc(100vh - 150px);
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+      }
+
+      .pv2-lightbox__caption {
+        max-width: 70ch;
+        margin-top: 16px;
+        color: rgba(243, 239, 225, 0.82);
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .pv2-lightbox__close {
+        position: absolute;
+        top: max(18px, env(safe-area-inset-top));
+        right: max(18px, env(safe-area-inset-right));
+        z-index: 2;
+        display: grid;
+        place-content: center;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border: 1px solid rgba(243, 239, 225, 0.3);
+        border-radius: 50%;
+        background: rgba(23, 21, 18, 0.74);
+        color: #f3efe1;
+        font-family: Arial, sans-serif;
+        font-size: 1.65rem;
+        font-weight: 400;
+        line-height: 1;
+        cursor: pointer;
+        transition:
+          background 0.3s var(--ease),
+          border-color 0.3s var(--ease),
+          transform 0.3s var(--ease);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .pv2-lightbox__close:hover {
+        border-color: var(--teal);
+        background: var(--teal-deep);
+        transform: rotate(4deg);
+      }
+
+      .pv2-lightbox__close:focus-visible {
+        outline: 3px solid var(--teal);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 760px) {
+        .pv2-lightbox {
+          padding:
+            max(70px, env(safe-area-inset-top))
+            12px
+            max(24px, env(safe-area-inset-bottom));
+        }
+
+        .pv2-lightbox__image {
+          max-height: calc(100vh - 145px);
+          border-radius: 8px;
+        }
+
+        .pv2-lightbox__caption {
+          margin-top: 12px;
+          padding: 0 12px;
+          font-size: 0.82rem;
+        }
+
+        .pv2-lightbox__close {
+          width: 44px;
+          height: 44px;
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pv2-lightbox,
+        .pv2-lightbox__figure,
+        .pv2-lightbox__close {
+          transition: none;
+        }
+
+        .pv2-lightbox__figure,
+        .pv2-lightbox.is-open .pv2-lightbox__figure {
           transform: none;
         }
       }
@@ -179,23 +440,31 @@
   </head>
 
   <body class="pv2 is-loading">
-    <!-- Grain overlay (textura sutil premium) -->
+    <!-- Grain overlay -->
     <div class="pv2-grain" aria-hidden="true"></div>
 
-    <!-- Cursor customizado (desktop) -->
+    <!-- Cursor customizado -->
     <div class="pv2-cursor" data-cursor aria-hidden="true"></div>
 
-    <!-- Preloader / cortina de abertura -->
+    <!-- Preloader -->
     <div class="pv2-loader" data-loader aria-hidden="true">
       <div class="pv2-loader-inner">
         <span class="pv2-loader-mark">LT</span>
         <span class="pv2-loader-word" data-loader-word>Oss</span>
       </div>
-      <div class="pv2-loader-bar"><i data-loader-bar></i></div>
+
+      <div class="pv2-loader-bar">
+        <i data-loader-bar></i>
+      </div>
     </div>
 
     <header class="pv2-header" data-header>
-      <a class="pv2-brand" href="#inicio" data-cursor-target aria-label="Leo Thaylor — início">
+      <a
+        class="pv2-brand"
+        href="#inicio"
+        data-cursor-target
+        aria-label="Leo Thaylor — início"
+      >
         <span class="pv2-brand-name">Leo Thaylor</span>
         <span class="pv2-brand-sub">Brazilian Jiu-Jitsu</span>
       </a>
@@ -205,6 +474,7 @@
         <a href="#metodo" data-cursor-target>Método</a>
         <a href="#momentos" data-cursor-target>Momentos</a>
         <a href="#contato" data-cursor-target>Contato</a>
+
         <a
           href="./alunos/"
           class="pv2-nav-cta"
@@ -230,12 +500,22 @@
       </button>
     </header>
 
-    <nav id="pv2-menu" class="pv2-menu" data-menu aria-label="Menu móvel">
+    <nav
+      id="pv2-menu"
+      class="pv2-menu"
+      data-menu
+      aria-label="Menu móvel"
+    >
       <a href="#sobre">Sobre</a>
       <a href="#metodo">Método</a>
       <a href="#momentos">Momentos</a>
       <a href="#contato">Contato</a>
-      <a href="./alunos/" class="pv2-menu-cta" data-config-link="studentArea">
+
+      <a
+        href="./alunos/"
+        class="pv2-menu-cta"
+        data-config-link="studentArea"
+      >
         Área do Aluno
       </a>
     </nav>
@@ -257,8 +537,8 @@
             </h1>
 
             <p class="pv2-lead" data-hero="2">
-              Primeira aula com introdução específica para iniciantes. Técnica explicada com clareza na TRION,
-              no Rio de Janeiro.
+              Primeira aula com introdução específica para iniciantes.
+              Técnica explicada com clareza na TRION, no Rio de Janeiro.
             </p>
 
             <div class="pv2-cta" data-hero="3">
@@ -330,14 +610,30 @@
 
         <div class="pv2-ticker" aria-hidden="true">
           <div class="pv2-ticker-track" data-ticker>
-            <span>Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i></span>
-            <span>Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i></span>
-            <span>Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i></span>
-            <span>Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i></span>
+            <span>
+              Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i>
+            </span>
+
+            <span>
+              Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i>
+            </span>
+
+            <span>
+              Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i>
+            </span>
+
+            <span>
+              Começar<i>—</i>Aprender<i>—</i>Praticar<i>—</i>Evoluir<i>—</i>
+            </span>
           </div>
         </div>
 
-        <a class="pv2-scrollcue" href="#sobre" data-cursor-target aria-label="Rolar">
+        <a
+          class="pv2-scrollcue"
+          href="#sobre"
+          data-cursor-target
+          aria-label="Rolar"
+        >
           <span>Role</span>
           <i></i>
         </a>
@@ -351,19 +647,26 @@
         </div>
 
         <div class="pv2-about-grid">
-          <h2 class="pv2-display pv2-about-title" data-reveal-lines>
+          <h2
+            class="pv2-display pv2-about-title"
+            data-reveal-lines
+          >
             Comecei aos 16.<br />Ainda treino<br />todos os dias.
           </h2>
 
           <div class="pv2-about-copy">
             <p data-reveal>
-              Sou Leo Thaylor, faixa preta de jiu-jitsu e professor contratado pela TRION, no Rio de Janeiro.
-              Treinei a maior parte da vida na academia Marcio Rodrigues antes de chegar aqui.
+              Sou Leo Thaylor, faixa preta de jiu-jitsu e professor
+              contratado pela TRION, no Rio de Janeiro. Treinei a maior
+              parte da vida na academia Marcio Rodrigues antes de chegar
+              aqui.
             </p>
 
             <p data-reveal>
-              Já dei aula para crianças e adultos, em academia e em colégio. Para quem está começando, a primeira
-              aula tem uma introdução específica antes da prática, sem exigir experiência anterior.
+              Já dei aula para crianças e adultos, em academia e em
+              colégio. Para quem está começando, a primeira aula tem uma
+              introdução específica antes da prática, sem exigir
+              experiência anterior.
             </p>
           </div>
         </div>
@@ -383,8 +686,10 @@
             </h2>
 
             <p class="pv2-method-intro" data-reveal>
-              A aula não parte do princípio de que você já sabe lutar. Cada técnica é apresentada por etapas:
-              você entende a posição e o objetivo, pratica o movimento e recebe correções durante o exercício.
+              A aula não parte do princípio de que você já sabe lutar.
+              Cada técnica é apresentada por etapas: você entende a posição
+              e o objetivo, pratica o movimento e recebe correções durante
+              o exercício.
             </p>
 
             <div class="pv2-method-progress" aria-hidden="true">
@@ -397,33 +702,53 @@
           <ol class="pv2-method-steps">
             <li class="pv2-step" data-step="01">
               <span class="pv2-step-num">01</span>
+
               <div class="pv2-step-body">
                 <h3>Entender</h3>
-                <p>Você conhece a posição, o objetivo do exercício e o que precisa observar.</p>
+
+                <p>
+                  Você conhece a posição, o objetivo do exercício e o que
+                  precisa observar.
+                </p>
               </div>
             </li>
 
             <li class="pv2-step" data-step="02">
               <span class="pv2-step-num">02</span>
+
               <div class="pv2-step-body">
                 <h3>Movimento</h3>
-                <p>Aprende a organizar o corpo, a base e a direção antes de usar força.</p>
+
+                <p>
+                  Aprende a organizar o corpo, a base e a direção antes de
+                  usar força.
+                </p>
               </div>
             </li>
 
             <li class="pv2-step" data-step="03">
               <span class="pv2-step-num">03</span>
+
               <div class="pv2-step-body">
                 <h3>Praticar</h3>
-                <p>Repete a técnica com orientação e correções durante o exercício.</p>
+
+                <p>
+                  Repete a técnica com orientação e correções durante o
+                  exercício.
+                </p>
               </div>
             </li>
 
             <li class="pv2-step" data-step="04">
               <span class="pv2-step-num">04</span>
+
               <div class="pv2-step-body">
                 <h3>Aplicar</h3>
-                <p>Usa o que aprendeu em situações progressivas, começando pelo que foi ensinado.</p>
+
+                <p>
+                  Usa o que aprendeu em situações progressivas, começando
+                  pelo que foi ensinado.
+                </p>
               </div>
             </li>
           </ol>
@@ -433,7 +758,11 @@
       <!-- ============================== PRESENÇA ========================== -->
       <section class="pv2-quote" data-quote>
         <div class="pv2-quote-media" aria-hidden="true">
-          <img src="./assets/images/presence-leo-bjj.jpg" alt="" data-parallax-img />
+          <img
+            src="./assets/images/presence-leo-bjj.jpg"
+            alt=""
+            data-parallax-img
+          />
         </div>
 
         <div class="pv2-quote-inner">
@@ -442,7 +771,8 @@
           </p>
 
           <blockquote class="pv2-display" data-reveal>
-            Jiu-jitsu não começa na força. Começa quando você entende o que está fazendo.
+            Jiu-jitsu não começa na força. Começa quando você entende o que
+            está fazendo.
           </blockquote>
         </div>
       </section>
@@ -460,55 +790,136 @@
           </h2>
 
           <p data-reveal>
-            A aula experimental apresenta o jiu-jitsu, o ambiente e a forma de ensino antes de você decidir
-            continuar.
+            A aula experimental apresenta o jiu-jitsu, o ambiente e a forma
+            de ensino antes de você decidir continuar.
           </p>
         </div>
 
         <div class="pv2-content-grid">
-          <article class="pv2-slot" data-reveal data-cursor-target>
-            <img
-              class="pv2-slot-media"
-              src="./assets/images/primeira-aula-introducao.jpg"
-              alt="Introdução de jiu-jitsu preparada para uma pessoa iniciante"
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Foto ampliável 1 -->
+          <article
+            class="pv2-slot"
+            data-reveal
+            data-cursor-target
+          >
+            <button
+              class="pv2-slot-media-button"
+              type="button"
+              data-lightbox-trigger
+              data-lightbox-src="./assets/images/primeira-aula-introducao.jpg"
+              data-lightbox-alt="Introdução de jiu-jitsu preparada para uma pessoa iniciante"
+              data-lightbox-caption="Introdução específica para quem está conhecendo o jiu-jitsu."
+              aria-label="Ampliar foto da introdução para iniciantes"
+            >
+              <img
+                class="pv2-slot-media"
+                src="./assets/images/primeira-aula-introducao.jpg"
+                alt="Introdução de jiu-jitsu preparada para uma pessoa iniciante"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <span
+                class="pv2-slot-media-zoom"
+                aria-hidden="true"
+              >
+                Ampliar
+              </span>
+            </button>
 
             <span class="pv2-slot-tag">Iniciante</span>
             <span class="pv2-slot-num">01</span>
+
             <h3>Introdução</h3>
-            <p>Uma apresentação específica para quem nunca treinou e quer entender o básico.</p>
+
+            <p>
+              Uma apresentação específica para quem nunca treinou e quer
+              entender o básico.
+            </p>
           </article>
 
-          <article class="pv2-slot" data-reveal data-cursor-target>
-            <img
-              class="pv2-slot-media"
-              src="./assets/images/primeira-aula-retomada.jpg"
-              alt="Praticante retomando o treinamento de jiu-jitsu na TRION"
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Foto ampliável 2 -->
+          <article
+            class="pv2-slot"
+            data-reveal
+            data-cursor-target
+          >
+            <button
+              class="pv2-slot-media-button"
+              type="button"
+              data-lightbox-trigger
+              data-lightbox-src="./assets/images/primeira-aula-retomada.jpg"
+              data-lightbox-alt="Praticante retomando o treinamento de jiu-jitsu na TRION"
+              data-lightbox-caption="Treino para quem deseja voltar ao tatame e conhecer a turma."
+              aria-label="Ampliar foto da retomada do treinamento"
+            >
+              <img
+                class="pv2-slot-media"
+                src="./assets/images/primeira-aula-retomada.jpg"
+                alt="Praticante retomando o treinamento de jiu-jitsu na TRION"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <span
+                class="pv2-slot-media-zoom"
+                aria-hidden="true"
+              >
+                Ampliar
+              </span>
+            </button>
 
             <span class="pv2-slot-tag">Retorno</span>
             <span class="pv2-slot-num">02</span>
+
             <h3>Retomada</h3>
-            <p>Quem já treinou pode conhecer a turma e retomar o contato com o tatame.</p>
+
+            <p>
+              Quem já treinou pode conhecer a turma e retomar o contato com
+              o tatame.
+            </p>
           </article>
 
-          <article class="pv2-slot" data-reveal data-cursor-target>
-            <img
-              class="pv2-slot-media"
-              src="./assets/images/primeira-aula-orientacao.jpg"
-              alt="Leo Thaylor orientando um aluno durante uma aula de jiu-jitsu"
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Foto ampliável 3 -->
+          <article
+            class="pv2-slot"
+            data-reveal
+            data-cursor-target
+          >
+            <button
+              class="pv2-slot-media-button"
+              type="button"
+              data-lightbox-trigger
+              data-lightbox-src="./assets/images/primeira-aula-orientacao.jpg"
+              data-lightbox-alt="Leo Thaylor orientando um aluno durante uma aula de jiu-jitsu"
+              data-lightbox-caption="Demonstração, repetição e correções durante a prática."
+              aria-label="Ampliar foto de orientação durante a aula"
+            >
+              <img
+                class="pv2-slot-media"
+                src="./assets/images/primeira-aula-orientacao.jpg"
+                alt="Leo Thaylor orientando um aluno durante uma aula de jiu-jitsu"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <span
+                class="pv2-slot-media-zoom"
+                aria-hidden="true"
+              >
+                Ampliar
+              </span>
+            </button>
 
             <span class="pv2-slot-tag">Na prática</span>
             <span class="pv2-slot-num">03</span>
+
             <h3>Orientação</h3>
-            <p>Demonstração, repetição e correções para que cada movimento faça sentido.</p>
+
+            <p>
+              Demonstração, repetição e correções para que cada movimento
+              faça sentido.
+            </p>
           </article>
         </div>
       </section>
@@ -527,7 +938,13 @@
 
           <p data-reveal>
             Registros reais das aulas e do dia a dia na TRION.
-            <span class="pv2-drag-hint" aria-hidden="true">Role para percorrer →</span>
+
+            <span
+              class="pv2-drag-hint"
+              aria-hidden="true"
+            >
+              Role para percorrer →
+            </span>
           </p>
         </div>
 
@@ -540,6 +957,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>01</figcaption>
             </figure>
 
@@ -550,6 +968,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>02</figcaption>
             </figure>
 
@@ -560,6 +979,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>03</figcaption>
             </figure>
 
@@ -570,6 +990,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>04</figcaption>
             </figure>
 
@@ -580,6 +1001,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>05</figcaption>
             </figure>
 
@@ -590,6 +1012,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>06</figcaption>
             </figure>
 
@@ -600,6 +1023,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>07</figcaption>
             </figure>
 
@@ -610,6 +1034,7 @@
                 loading="lazy"
                 decoding="async"
               />
+
               <figcaption>08</figcaption>
             </figure>
           </div>
@@ -624,24 +1049,51 @@
 
         <div class="pv2-location__inner">
           <div class="pv2-location__content">
-            <h2 class="pv2-display pv2-location__title" data-reveal-lines>
+            <h2
+              class="pv2-display pv2-location__title"
+              data-reveal-lines
+            >
               Onde acontecem as aulas.
             </h2>
 
-            <p class="pv2-location__copy" data-reveal>
-              As aulas acontecem na Trion, no Anil. Veja o endereço, abra a rota ou solicite uma aula
-              experimental para conhecer o espaço e o treino.
+            <p
+              class="pv2-location__copy"
+              data-reveal
+            >
+              As aulas acontecem na Trion, no Anil. Veja o endereço, abra a
+              rota ou solicite uma aula experimental para conhecer o espaço
+              e o treino.
             </p>
 
-            <address class="pv2-location__address" data-reveal>
-              <strong data-config-text="academyName">Studio Trion</strong>
-              <span data-config-text="addressLine1">Estrada do Engenho D'Água nº 1375</span>
-              <span data-config-text="addressLine2">Loja 112 — BR Stores</span>
-              <span data-config-text="addressLine3">Anil, Rio de Janeiro — RJ</span>
-              <span data-config-text="addressCep">CEP 22765-240</span>
+            <address
+              class="pv2-location__address"
+              data-reveal
+            >
+              <strong data-config-text="academyName">
+                Studio Trion
+              </strong>
+
+              <span data-config-text="addressLine1">
+                Estrada do Engenho D'Água nº 1375
+              </span>
+
+              <span data-config-text="addressLine2">
+                Loja 112 — BR Stores
+              </span>
+
+              <span data-config-text="addressLine3">
+                Anil, Rio de Janeiro — RJ
+              </span>
+
+              <span data-config-text="addressCep">
+                CEP 22765-240
+              </span>
             </address>
 
-            <div class="pv2-location__actions" data-reveal>
+            <div
+              class="pv2-location__actions"
+              data-reveal
+            >
               <a
                 class="pv2-btn pv2-btn-solid"
                 href="https://www.google.com/maps/dir/?api=1&amp;destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240"
@@ -668,7 +1120,10 @@
             </div>
           </div>
 
-          <div class="pv2-location__map" data-reveal>
+          <div
+            class="pv2-location__map"
+            data-reveal
+          >
             <iframe
               class="pv2-location__frame"
               title="Localização do Studio Trion no Google Maps"
@@ -691,13 +1146,20 @@
           <span class="pv2-tag">Contato</span>
         </div>
 
-        <h2 class="pv2-display pv2-contact-title" data-reveal-lines>
+        <h2
+          class="pv2-display pv2-contact-title"
+          data-reveal-lines
+        >
           Fala comigo.
         </h2>
 
-        <p class="pv2-contact-copy" data-reveal>
-          O WhatsApp é o caminho para conversar agora. O formulário serve para deixar seus dados e receber
-          contato sobre a aula experimental. No Instagram, você acompanha aulas e rotina.
+        <p
+          class="pv2-contact-copy"
+          data-reveal
+        >
+          O WhatsApp é o caminho para conversar agora. O formulário serve
+          para deixar seus dados e receber contato sobre a aula
+          experimental. No Instagram, você acompanha aulas e rotina.
         </p>
 
         <ul class="pv2-contact-list">
@@ -712,7 +1174,13 @@
             >
               <span class="pv2-c-label">WhatsApp</span>
               <span class="pv2-c-value">21 98280-8635</span>
-              <span class="pv2-c-arrow" aria-hidden="true">↗</span>
+
+              <span
+                class="pv2-c-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </a>
           </li>
 
@@ -726,7 +1194,13 @@
             >
               <span class="pv2-c-label">Instagram</span>
               <span class="pv2-c-value">@leothaylor</span>
-              <span class="pv2-c-arrow" aria-hidden="true">↗</span>
+
+              <span
+                class="pv2-c-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </a>
           </li>
 
@@ -740,7 +1214,13 @@
             >
               <span class="pv2-c-label">TRION</span>
               <span class="pv2-c-value">@studio.trion</span>
-              <span class="pv2-c-arrow" aria-hidden="true">↗</span>
+
+              <span
+                class="pv2-c-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </a>
           </li>
         </ul>
@@ -757,24 +1237,71 @@
       </div>
     </footer>
 
+    <!-- Lightbox restrito às três fotos do bloco Primeira aula -->
+    <div
+      class="pv2-lightbox"
+      data-lightbox
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Visualização ampliada da fotografia"
+    >
+      <button
+        class="pv2-lightbox__close"
+        type="button"
+        data-lightbox-close
+        aria-label="Fechar imagem ampliada"
+      >
+        ×
+      </button>
+
+      <figure class="pv2-lightbox__figure">
+        <img
+          class="pv2-lightbox__image"
+          src=""
+          alt=""
+          data-lightbox-image
+        />
+
+        <figcaption
+          class="pv2-lightbox__caption"
+          data-lightbox-caption
+        ></figcaption>
+      </figure>
+    </div>
+
     <!-- PORTFOLIO CONFIG: INÍCIO -->
     <script>
       window.PORTFOLIO_CONFIG = Object.freeze({
         whatsappNumber: "5521982808635",
+
         whatsappMessage:
           "Olá, Leo. Vim pelo seu site e gostaria de agendar uma aula experimental de jiu-jitsu na Trion.",
+
         whatsappUrl:
           "https://wa.me/5521982808635?text=Ol%C3%A1%2C%20Leo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20jiu-jitsu%20na%20Trion.",
+
         formUrl:
           "https://docs.google.com/forms/d/e/1FAIpQLSeVeqiQsjJW03ZPJ3Bh5GBx2-WwBlKldVYp0DfSwZgdUnGahw/viewform",
+
         mapsRouteUrl:
           "https://www.google.com/maps/dir/?api=1&destination=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Loja%20112%2C%20BR%20Stores%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240",
+
         mapsEmbedUrl:
           "https://www.google.com/maps?q=Estrada%20do%20Engenho%20D%27%C3%81gua%201375%2C%20Anil%2C%20Rio%20de%20Janeiro%2C%20RJ%2022765-240&output=embed",
-        instagramUrl: "https://instagram.com/leothaylor",
-        trionUrl: "https://www.instagram.com/studio.trion/",
-        studentAreaUrl: "./alunos/",
-        academyName: "Studio Trion",
+
+        instagramUrl:
+          "https://instagram.com/leothaylor",
+
+        trionUrl:
+          "https://www.instagram.com/studio.trion/",
+
+        studentAreaUrl:
+          "./alunos/",
+
+        academyName:
+          "Studio Trion",
+
         address: Object.freeze({
           line1: "Estrada do Engenho D'Água nº 1375",
           line2: "Loja 112 — BR Stores",
@@ -785,6 +1312,7 @@
 
       (function syncPortfolioConfig() {
         const config = window.PORTFOLIO_CONFIG;
+
         if (!config) return;
 
         const linkMap = {
@@ -796,27 +1324,37 @@
           studentArea: config.studentAreaUrl
         };
 
-        document.querySelectorAll("[data-config-link]").forEach((element) => {
-          const key = element.getAttribute("data-config-link");
-          const value = linkMap[key];
+        document
+          .querySelectorAll("[data-config-link]")
+          .forEach((element) => {
+            const key = element.getAttribute("data-config-link");
+            const value = linkMap[key];
 
-          if (value && element.getAttribute("href") !== value) {
-            element.setAttribute("href", value);
-          }
-        });
+            if (
+              value &&
+              element.getAttribute("href") !== value
+            ) {
+              element.setAttribute("href", value);
+            }
+          });
 
         const sourceMap = {
           mapsEmbed: config.mapsEmbedUrl
         };
 
-        document.querySelectorAll("[data-config-src]").forEach((element) => {
-          const key = element.getAttribute("data-config-src");
-          const value = sourceMap[key];
+        document
+          .querySelectorAll("[data-config-src]")
+          .forEach((element) => {
+            const key = element.getAttribute("data-config-src");
+            const value = sourceMap[key];
 
-          if (value && element.getAttribute("src") !== value) {
-            element.setAttribute("src", value);
-          }
-        });
+            if (
+              value &&
+              element.getAttribute("src") !== value
+            ) {
+              element.setAttribute("src", value);
+            }
+          });
 
         const textMap = {
           academyName: config.academyName,
@@ -826,20 +1364,146 @@
           addressCep: config.address.cep
         };
 
-        document.querySelectorAll("[data-config-text]").forEach((element) => {
-          const key = element.getAttribute("data-config-text");
-          const value = textMap[key];
+        document
+          .querySelectorAll("[data-config-text]")
+          .forEach((element) => {
+            const key = element.getAttribute("data-config-text");
+            const value = textMap[key];
 
-          if (value && element.textContent !== value) {
-            element.textContent = value;
-          }
-        });
+            if (
+              value &&
+              element.textContent !== value
+            ) {
+              element.textContent = value;
+            }
+          });
       })();
     </script>
     <!-- PORTFOLIO CONFIG: FIM -->
 
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script defer src="./premium-v2.js"></script>
+    <!-- Controle do lightbox -->
+    <script>
+      (function initFirstClassLightbox() {
+        const lightbox = document.querySelector("[data-lightbox]");
+        const lightboxImage = document.querySelector(
+          "[data-lightbox-image]"
+        );
+        const lightboxCaption = document.querySelector(
+          "[data-lightbox-caption]"
+        );
+        const closeButton = document.querySelector(
+          "[data-lightbox-close]"
+        );
+        const triggers = Array.from(
+          document.querySelectorAll("[data-lightbox-trigger]")
+        );
+
+        if (
+          !lightbox ||
+          !lightboxImage ||
+          !lightboxCaption ||
+          !closeButton ||
+          !triggers.length
+        ) {
+          return;
+        }
+
+        let activeTrigger = null;
+
+        function openLightbox(trigger) {
+          const imageSource = trigger.getAttribute(
+            "data-lightbox-src"
+          );
+
+          const imageAlt =
+            trigger.getAttribute("data-lightbox-alt") || "";
+
+          const caption =
+            trigger.getAttribute("data-lightbox-caption") || "";
+
+          if (!imageSource) return;
+
+          activeTrigger = trigger;
+
+          lightboxImage.src = imageSource;
+          lightboxImage.alt = imageAlt;
+          lightboxCaption.textContent = caption;
+
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lightbox-open");
+
+          window.requestAnimationFrame(() => {
+            closeButton.focus();
+          });
+        }
+
+        function closeLightbox() {
+          if (!lightbox.classList.contains("is-open")) return;
+
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("lightbox-open");
+
+          window.setTimeout(() => {
+            lightboxImage.removeAttribute("src");
+            lightboxImage.alt = "";
+            lightboxCaption.textContent = "";
+          }, 350);
+
+          if (activeTrigger) {
+            activeTrigger.focus();
+          }
+
+          activeTrigger = null;
+        }
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => {
+            openLightbox(trigger);
+          });
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            lightbox.classList.contains("is-open")
+          ) {
+            closeLightbox();
+          }
+
+          if (
+            event.key === "Tab" &&
+            lightbox.classList.contains("is-open")
+          ) {
+            event.preventDefault();
+            closeButton.focus();
+          }
+        });
+      })();
+    </script>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    ></script>
+
+    <script
+      defer
+      src="./premium-v2.js"
+    ></script>
   </body>
 </html>
