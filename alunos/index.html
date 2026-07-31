@@ -105,6 +105,16 @@
         transition: background 0.25s;
       }
       button:hover, button:focus-visible { background: var(--teal-deep); }
+      .back-link {
+        display: block;
+        margin-top: 14px;
+        color: var(--ink-2);
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+      }
+      .back-link:hover, .back-link:focus-visible { color: var(--teal-deep); }
       .error {
         margin: 14px 0 0;
         min-height: 1.2em;
@@ -130,6 +140,7 @@
         <button type="submit">Entrar</button>
         <p class="error" id="error" role="alert" aria-live="polite"></p>
       </form>
+      <a class="back-link" href="../index.html">Voltar ao site</a>
     </main>
 
     <script>

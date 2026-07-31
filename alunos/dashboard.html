@@ -121,6 +121,17 @@
 
     .logout:hover { background: var(--teal); border-color: var(--teal); color: #f3efe1; }
 
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back-link:hover { color: var(--teal-deep); }
+
     main { padding: 42px 0 20px; }
     section { padding: 24px 0 34px; }
 
@@ -504,7 +515,10 @@
           <span>Turma das 10h · TRION</span>
         </div>
       </div>
-      <button class="logout" id="logout" type="button">Sair</button>
+      <div class="header-actions">
+        <a class="back-link" href="../index.html">Voltar ao site</a>
+        <button class="logout" id="logout" type="button">Sair</button>
+      </div>
     </div>
   </header>
 
