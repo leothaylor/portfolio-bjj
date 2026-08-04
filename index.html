@@ -4,40 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-901CW6RW4H"
-    ></script>
-
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-
-      gtag("js", new Date());
-      gtag("config", "G-901CW6RW4H");
-    </script>
-
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "xs3yejldmx");
-    </script>
+    <!--
+      GA4, Clarity e Meta Pixel são carregados condicionalmente após
+      consentimento real pelo controlador abaixo.
+    -->
+    <link rel="stylesheet" href="./tracking-consent.css" />
+    <script defer src="./tracking-consent.js"></script>
 
     <meta
       name="description"
@@ -1513,142 +1485,6 @@
           ) {
             event.preventDefault();
             closeButton.focus();
-          }
-        });
-      })();
-    </script>
-
-    <!-- Rastreamento central de interações -->
-    <script>
-      (function initInteractionTracking() {
-        const TRACKING_MAP = Object.freeze({
-          whatsapp_hero: Object.freeze({
-            ga4Event: "click_whatsapp",
-            parameters: Object.freeze({
-              element_location: "hero",
-              element_label: "WhatsApp"
-            })
-          }),
-
-          whatsapp_contact: Object.freeze({
-            ga4Event: "click_whatsapp",
-            parameters: Object.freeze({
-              element_location: "contact",
-              element_label: "WhatsApp"
-            })
-          }),
-
-          form_hero: Object.freeze({
-            ga4Event: "click_form",
-            parameters: Object.freeze({
-              element_location: "hero",
-              element_label: "Solicitar aula experimental"
-            })
-          }),
-
-          form_location: Object.freeze({
-            ga4Event: "click_form",
-            parameters: Object.freeze({
-              element_location: "location",
-              element_label: "Solicitar aula experimental"
-            })
-          }),
-
-          route_location: Object.freeze({
-            ga4Event: "click_route",
-            parameters: Object.freeze({
-              element_location: "location",
-              element_label: "Abrir rota"
-            })
-          }),
-
-          instagram_hero: Object.freeze({
-            ga4Event: "click_instagram",
-            parameters: Object.freeze({
-              element_location: "hero",
-              element_label: "Instagram"
-            })
-          }),
-
-          instagram_contact: Object.freeze({
-            ga4Event: "click_instagram",
-            parameters: Object.freeze({
-              element_location: "contact",
-              element_label: "Instagram"
-            })
-          }),
-
-          photo_introducao: Object.freeze({
-            ga4Event: "open_photo",
-            parameters: Object.freeze({
-              element_location: "primeira_aula",
-              element_label: "Ampliar foto",
-              photo_name: "introducao"
-            })
-          }),
-
-          photo_retomada: Object.freeze({
-            ga4Event: "open_photo",
-            parameters: Object.freeze({
-              element_location: "primeira_aula",
-              element_label: "Ampliar foto",
-              photo_name: "retomada"
-            })
-          }),
-
-          photo_orientacao: Object.freeze({
-            ga4Event: "open_photo",
-            parameters: Object.freeze({
-              element_location: "primeira_aula",
-              element_label: "Ampliar foto",
-              photo_name: "orientacao"
-            })
-          })
-        });
-
-        document.addEventListener("click", (event) => {
-          const clickedElement =
-            event.target instanceof Element
-              ? event.target.closest("[data-track]")
-              : null;
-
-          if (!clickedElement) return;
-
-          const trackingName =
-            clickedElement.getAttribute("data-track");
-
-          if (!trackingName) return;
-
-          const trackingConfig =
-            TRACKING_MAP[trackingName];
-
-          if (!trackingConfig) return;
-
-          const eventParameters = {
-            ...trackingConfig.parameters
-          };
-
-          if (
-            clickedElement instanceof HTMLAnchorElement &&
-            clickedElement.href
-          ) {
-            eventParameters.link_url =
-              clickedElement.href;
-          }
-
-          if (typeof window.gtag === "function") {
-            window.gtag(
-              "event",
-              trackingConfig.ga4Event,
-              eventParameters
-            );
-          }
-
-          if (typeof window.clarity === "function") {
-            window.clarity(
-              "event",
-              trackingName
-            );
           }
         });
       })();
