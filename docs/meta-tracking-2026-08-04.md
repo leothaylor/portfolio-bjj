@@ -17,14 +17,14 @@ O Dataset/Pixel foi criado no Gerenciador de Eventos sem Conversions API e sem c
 
 | Item | Estado | Evidência |
 |---|---|---|
-| Pixel `941784835609445` | CONFIGURADO e TESTADO no navegador | `fbevents.js` carregado somente após consentimento; fila contém um `PageView` e um `ViewContent` |
-| Meta Test Events | CONFIGURADO; validação visual pendente | A sessão de teste foi aberta e os eventos foram acionados, mas a interface ainda não os exibiu durante a janela desta execução |
+| Pixel `941784835609445` | OPERACIONAL E VALIDADO NO PAINEL DA META | Overview reconheceu os quatro eventos como ativos pela integração Meta Pixel |
+| Eventos Meta | OPERACIONAIS | `PageView` 7, `ViewContent` 7, `Contact` 3 e `FormOpen` 3 |
 | GA4 `G-901CW6RW4H` | OPERACIONAL | Realtime exibiu `page_view`, `click_form` e `click_whatsapp` |
 | Microsoft Clarity `xs3yejldmx` | OPERACIONAL | painel do projeto exibiu sessão pública, duas páginas e zero erros JavaScript |
 | Consentimento | TESTADO | recusar não carrega rastreadores; aceitar por categoria carrega apenas os scripts correspondentes |
 | GitHub Pages | OPERACIONAL | os novos arquivos responderam HTTP 200 no domínio público |
 
-Os estados acima distinguem presença/configuração de validação efetivamente observada. A ausência temporária no Meta Test Events não é tratada como prova de operação.
+Os estados acima distinguem presença/configuração de validação efetivamente observada. A evidência posterior do painel Overview encerrou a pendência temporária do Meta Test Events e comprovou o fluxo site → Meta Pixel → Meta.
 
 ## Implementação
 
@@ -83,6 +83,9 @@ Git 2.54.0.windows.1
 
 Resultados:
 
+- o painel Overview da Meta marcou `PageView`, `ViewContent`, `Contact` e `FormOpen` como **Active**, pela integração **Meta Pixel**;
+- totais observados na validação final: `PageView` 7, `ViewContent` 7, `Contact` 3 e `FormOpen` 3;
+- os acessos feitos pelo Instagram, celular e sessão de teste podem compor esses totais; o Overview agregado não permite atribuir cada ocorrência a um dispositivo específico;
 - 8 asserções automatizadas passaram para whitelist, sanitização, persistência, consentimento e unicidade dos eventos.
 - visita direta e visita com UTMs simuladas carregaram sem erro;
 - clique de WhatsApp abriu o destino e produziu `Contact`/`click_whatsapp`;
@@ -101,8 +104,11 @@ Resultados:
 
 A implementação funcional foi enviada à branch e integrada por fast-forward à `main`, acionando o GitHub Pages. O arquivo não versionado `HANDOFF_CLAUDE_CODE_PREMIUM_V2.md`, preexistente e pertencente ao usuário, foi preservado e não entrou nos commits.
 
-## Pendências seguras
+## Encerramento da Etapa C
 
-1. Reabrir Meta Test Events e confirmar visualmente `PageView`, `ViewContent`, `Contact` e `FormOpen` após o processamento inicial do novo Dataset.
-2. Na futura criação autorizada de um anúncio, conferir os parâmetros dinâmicos no construtor de URL e usar exatamente o padrão deste documento.
-3. Considerar Conversions API apenas se houver backend/proxy autorizado e política de consentimento correspondente; nenhum token foi gerado ou armazenado nesta entrega.
+A Etapa C está formalmente concluída: os quatro eventos foram recebidos e classificados como ativos pela Meta, GA4 e Clarity foram validados, o consentimento controla os scripts reais e nenhuma campanha foi publicada.
+
+## Próximos passos seguros
+
+1. Na futura criação autorizada de um anúncio, conferir os parâmetros dinâmicos no construtor de URL e usar exatamente o padrão deste documento.
+2. Considerar Conversions API apenas se houver backend/proxy autorizado e política de consentimento correspondente; nenhum token foi gerado ou armazenado nesta entrega.
